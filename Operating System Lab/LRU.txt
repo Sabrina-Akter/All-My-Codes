@@ -1,0 +1,41 @@
+1) For 7,
+counter = 1
+faults = 1
+frames[0] = 7
+time[0] = 1
+
+2) For 5,
+counter = 2
+faults = 2
+frames[1] = 5
+time[1] = 2
+
+3) For 9,
+counter = 3
+faults = 3
+frames[2] = 9
+time[2] = 3
+
+4) For 4,
+min = time[0] = 1
+min is not greater than 
+time[1] = 2
+time[2] = 3
+So, pos = 0
+counter = 4
+faults = 4
+frames[pos = 0] = 4
+time[pos = 0] = 4
+
+
+5) For 3,
+min = time[0] = 4
+min is greater than time[1]
+time[1] = 2
+time[2] = 3
+So, pos = 1
+counter = 5
+faults = 5
+frames[pos = 1] = 4
+time[pos = 0] = 4
+

@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <string.h>
+#include <omnetpp.h>
+#include "frame49lab5_m.h"
+using namespace omnetpp;
+
+class Host_49 : public cSimpleModule
+{
+  private:
+   simsignal_t  arrivalSignal;
+  protected:
+    virtual frame49lab5 *generateMessage();
+    virtual void initialize() override;
+    virtual void handleMessage(cMessage *msg) override;
+    virtual void forwardMessage(frame49lab5 *msg);
+};
+
+Define_Module(Host_49);
+
+void Host_49::initialize()
+{
+    arrivalSignal = registerSignal("arrival");
+    if (getIndex() == 4) {
+        frame49lab5 *msg = generateMessage();
+        scheduleAt(0.0, msg);
+    }
+}
+void Host_49::handleMessage(cMessage *msg)
+{
+    frame49lab5 *ttmsg = check_and_cast<frame49lab5 *>(msg);
+
+    if (ttmsg->getDestination() == getIndex()) {
+        int hopcount = ttmsg->getHopCount();
+        emit(arrivalSignal,hopcount);
+        EV << "Message " << ttmsg << " arrived after"<< hopcount<<"hoops.\n";
+        bubble("Arrived, Starting new one!!");
+        delete ttmsg;
+        EV<<"Generating Another Message: ";
+        frame49lab5 *newmsg= generateMessage();
+        EV<<newmsg<<endl;
+        forwardMessage(newmsg);
+    }
+    else {
+
+        forwardMessage(ttmsg);
+    }
+}
+frame49lab5 *Host_49::generateMessage()
+{
+    int src=getIndex();
+    int n=getVectorSize();
+    int dest=intuniform(0,n-2);
+    if(dest>=src)
+    {
+        dest++;
+    }
+    char msgname[20];
+    sprintf(msgname, "Source-%d->Dest-%d",src,dest);
+    frame49lab5 *msg=new frame49lab5(msgname);
+    msg->setSource(src);
+    msg->setDestination(dest);
+    return msg;
+}
+void Host_49::forwardMessage(frame49lab5 *msg)
+{
+    msg->setHopCount(msg->getHopCount()+1);
+    int n = gateSize("gate");
+    int k = intuniform(0, n-1);
+
+    EV << "Forwarding message " << msg << " on gate[" << k << "]\n";
+    send(msg, "gate$o", k);
+}

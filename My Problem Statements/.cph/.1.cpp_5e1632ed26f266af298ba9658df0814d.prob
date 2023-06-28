@@ -1,0 +1,1 @@
+{"name":"Local: 1","url":"e:\\Codes\\CodeBlocks\\My Problem Statements\\1.cpp","tests":[{"id":1645011283866,"input":"8\n-3 100\n-4 280\n2 330\n6 525\n-2 450\n-3 300\n5 270\n-4 500","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\My Problem Statements\\1.cpp","group":"local","local":true}

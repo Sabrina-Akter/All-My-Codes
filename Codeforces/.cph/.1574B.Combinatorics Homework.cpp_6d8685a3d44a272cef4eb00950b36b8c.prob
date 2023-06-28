@@ -1,0 +1,1 @@
+{"name":"Local: 1574B","url":"e:\\Codes\\CodeBlocks\\Codeforces\\1574B.Combinatorics Homework.cpp","tests":[{"id":1632480104981,"input":"3\n2 2 1 0\n1 1 1 1\n1 2 3 2","output":"YES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\Codeforces\\1574B.Combinatorics Homework.cpp","group":"local","local":true}

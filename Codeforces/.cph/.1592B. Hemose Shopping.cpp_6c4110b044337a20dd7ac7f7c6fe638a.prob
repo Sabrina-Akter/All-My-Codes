@@ -1,0 +1,1 @@
+{"name":"Local: 1592B","url":"e:\\Codes\\CodeBlocks\\Codeforces\\1592B. Hemose Shopping.cpp","tests":[{"id":1633583451658,"input":"4\n3 3\n3 2 1\n4 3\n1 2 3 4\n5 2\n5 1 2 3 4\n5 4\n1 2 3 4 4","output":"NO\nYES\nYES\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\Codeforces\\1592B. Hemose Shopping.cpp","group":"local","local":true}

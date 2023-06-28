@@ -1,0 +1,1 @@
+{"name":"Local: a","url":"e:\\Codes\\CodeBlocks\\CCE Fest\\a.cpp","tests":[{"id":1667887112497,"input":"3 3\na c\nb a\na b\naaa abc\nabc aaa\nacm bcm","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\CCE Fest\\a.cpp","group":"local","local":true}

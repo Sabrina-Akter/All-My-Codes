@@ -1,0 +1,11 @@
+#include<stdio.h>
+
+main()
+{
+    int i,n = 1;
+    for (i=100;i>0;i = i - 1) {
+        n = n*m;
+        printf("%d\n", n);
+    }
+    return 0;
+}

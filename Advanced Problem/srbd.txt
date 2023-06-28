@@ -1,0 +1,103 @@
+Pipeline [Done]
+https://www.geeksforgeeks.org/samsung-semiconductor-institute-of-researchssir-software-intern-fte-set-3/
+ 
+Wormohle [Done]
+https://www.geeksforgeeks.org/samsung-interview-experience-set-34-campus-rd-noida/
+https://www.geeksforgeeks.org/samsung-interview-experience-r-d-noida-off-campus/
+https://www.geeksforgeeks.org/samsung-interview-experience-set-20-r-d-banglore/
+https://www.geeksforgeeks.org/samsung-interview-experience-set-36-campus/
+ 
+Bi-coloring [sorted order] [Done]
+https://www.geeksforgeeks.org/samsung-interview-experience-set-31-campus/
+https://www.geeksforgeeks.org/samsung-interview-experience-set-13-off-campus/
+https://www.geeksforgeeks.org/samsung-srib-interview-experience-2018/
+https://www.geeksforgeeks.org/samsung-interview-experience-set-14-campus/
+https://www.geeksforgeeks.org/samsung-rd-bangalore-interview-experience-on-campus-fte/
+https://www.geeksforgeeks.org/samsung-rd-bangalore-freshers-full-timeinternship/
+https://www.geeksforgeeks.org/samsung-rd-bangalore-interview-1-year-experienced/
+https://www.geeksforgeeks.org/samsung-research-institute-bangalore-research-engineer/
+https://www.geeksforgeeks.org/samsung-interview-experience-set-19-campus/
+ 
+Cycle Detection [Done]
+https://www.geeksforgeeks.org/samsung-interview-experience-set-17-campus/
+https://www.geeksforgeeks.org/samsung-rd-bangalore-interview-experience-on-campus-fte/
+ 
+Mr.Frog [Done]
+https://www.geeksforgeeks.org/samsung-interview-experience-set-16-campus/
+http://qa.geeksforgeeks.org/11186/qa.geeksforgeeks.org/11186/samsung-set-16-round-1-solution.html
+
+BinarysearchEquation [ ]
+ 
+Fisherman
+https://www.geeksforgeeks.org/samsung-semiconductor-institute-of-research-ssir-software-intern-fte-set-1/
+https://www.geeksforgeeks.org/samsung-bangalore-sri-b-interview-experience/
+
+Energy
+https://www.geeksforgeeks.org/samsung-interview-experience-set-32-campus/
+ 
+ 
+BallonBlast [Done]
+https://www.careercup.com/question?id=5719829237465088s [https://www.geeksforgeeks.org/samsung-delhi-interview-experience-on-campus-for-software-engineer-september-2018/]
+https://www.geeksforgeeks.org/samsung-semiconductor-institute-of-researchssir-software-intern-fte-set-2/
+https://www.geeksforgeeks.org/sri-delhi-interview-experience-on-campus-for-software-engineer/
+https://www.geeksforgeeks.org/burst-balloon-to-maximize-coins/
+https://www.geeksforgeeks.org/samsung-delhi-interview-experience-set-38-campus/
+ 
+ 
+control - spaceship
+https://www.geeksforgeeks.org/samsung-interview-experience-set-35-campus/
+https://www.geeksforgeeks.org/samsung-interview-experience-set-28-campus/
+ 
+ 
+Dr.Kim [Done]
+https://www.careercup.com/question?id=5745468609921024
+https://www.geeksforgeeks.org/samsung-interview-experience-set-30-campus/
+https://www.geeksforgeeks.org/samsung-interview-experience-on-campus-for-software-engineer-september-2018/
+https://www.geeksforgeeks.org/samsung-interview-experience-set-39-campus-r-d-noida/
+https://www.geeksforgeeks.org/samsung-rd-interview-experience-set-37-developer-profile/
+ 
+Rare Element
+https://www.geeksforgeeks.org/samsung-delhi-interview-experience-set-27-campus/
+ 
+pillar
+https://www.geeksforgeeks.org/samsung-r-d-noida-question-september-2018/
+ 
+Horse
+https://www.geeksforgeeks.org/samsung-noida-r-d-on-campus-internship-interview-experience/
+ 
+discarding product numbers
+https://www.geeksforgeeks.org/samsung-interview-experience-set-40-campus-white-box-testing/
+https://www.geeksforgeeks.org/samsung-rd-sri-noida-on-campus-interview-experience/ 
+
+Signal Amplifier
+https://stackoverflow.com/questions/7116438/algorithms-question-flipping-columns
+given a grid of 0 and 1,
+u need to apply exactly "k" lasers on columns
+laser effect reverse the column values (0 to 1, 1 to 0)
+need to find out how many rows with all 1
+given n,m,k, n=rows, m=columns, k=laser
+input: 
+3 3 2
+0 1 0
+0 1 1
+0 0 0
+output: 1
+
+
+
+
+{
+bicoloring*
+dfscycle*
+amplifier*
+wormhole*
+baloon*
+pillar*
+pipeline*
+rareelement
+fisherman
+spaceship
+refregerator/Dr. Kim
+cowsMindis
+DaysofWeek
+}

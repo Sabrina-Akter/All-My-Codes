@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"e:\\Codes\\CodeBlocks\\Ada Lovelace NGPC 2021\\Preliminary\\C.cpp","tests":[{"id":1637398629956,"input":"2\n1 3\n2 2","output":"Alice\nBob"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\Ada Lovelace NGPC 2021\\Preliminary\\C.cpp","group":"local","local":true}

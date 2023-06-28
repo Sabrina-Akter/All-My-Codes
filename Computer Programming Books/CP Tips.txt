@@ -1,0 +1,19 @@
+Advices by Tanvir bhaiya:
+
+1. Don't miss a single contest on CF
+2. Upsolve problems A, B, C, and D (skip D if it's too hard)
+3. Toph, Cook off, Lunch time
+
+Topics:
+1. Bellman–Ford Algorithm
+2. Dijkstra's Algorithm
+3. DFS
+4. BFS 
+5. Minimum Spanning Tree
+6. Bitwise
+7. Segment tree
+8. Dp
+9. Binary Search
+10. Bitwise Seive 
+11. Permutation, Combination
+

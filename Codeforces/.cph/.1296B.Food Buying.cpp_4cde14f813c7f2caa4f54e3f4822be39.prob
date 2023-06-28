@@ -1,0 +1,1 @@
+{"name":"Local: 1296B","url":"d:\\Codes\\CodeBlocks\\Codeforces\\1296B.Food Buying.cpp","tests":[{"id":1630603547448,"input":"6\n1\n10\n19\n9876\n12345\n1000000000","output":"1\n11\n21\n10973\n13716\n1111111111"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeBlocks\\Codeforces\\1296B.Food Buying.cpp","group":"local","local":true}

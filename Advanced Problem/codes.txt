@@ -1,0 +1,634 @@
+//amplifier
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+int A[100],n,ans=0,grid1[110][30],grid2[110][30],N,M,K,mx=-1;
+void resetAll(){
+    for(int i=0;i<100;i++){
+        A[i]=0;
+        for(int j=0;j<30;j++){
+            grid1[i][j]=grid2[i][j]=0;
+        }
+    }
+    mx=-1;
+    n=0;
+    ans=0;
+}
+void findMax(){
+    ans=0;
+    for(int i=0;i<N;i++){
+        int sum=0;
+        for(int j=0;j<M;j++){
+            sum=sum+grid2[i][j];
+        }
+        if(sum==M){
+            ans++;
+        }
+    }
+    mx=max(mx,ans);
+}
+void changeGrid()
+{
+    for(int i=0; i<N; i++)
+    {
+        for(int j=0; j<M; j++)
+        {
+            grid2[i][j]=grid1[i][j];
+        }
+    }
+}
+void alterGrid()
+{
+    changeGrid();
+    for(int i=0; i<M; i++)
+    {
+        if(A[i])
+        {
+            for(int j=0; j<N; j++)
+            {
+                grid2[j][i]=1-grid2[j][i];
+            }
+        }
+    }
+    findMax();
+}
+void printA(){
+    for(int i=0;i<n;i++){
+        cout<<A[i]<<" ";
+    }
+    cout<<endl;
+}
+void print()
+{
+    int oneCount=0;
+    for(int i=0; i<n; i++)
+    {
+        if(A[i]==1)
+        {
+            oneCount++;
+        }
+    }
+    if(oneCount<=K)
+    {
+        if(K%2==0 && oneCount%2==0)
+        {
+            //cout<<"A:";
+            //printA();
+            alterGrid();
+        }
+        if(K%2!=0 && oneCount%2!=0)
+        {
+            //cout<<"A:";
+            //printA();
+            alterGrid();
+        }
+    }
+}
+void solve(int i)
+{
+    if(i==n)
+    {
+        print();
+        //cout<<"\n";
+        return;
+    }
+    A[i]=0;
+    solve(i+1);
+    A[i]=1;
+    solve(i+1);
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        resetAll();
+        cin>>N>>M>>K;
+        for(int i=0; i<N; i++)
+        {
+            for(int j=0; j<M; j++)
+            {
+                cin>>grid1[i][j];
+                grid2[i][j]=grid1[i][j];
+            }
+        }
+        n=M;
+        solve(0);
+        cout<<mx<<endl;
+    }
+    return 0;
+}
+/*
+4
+4 5 5
+0 0 1 0 1
+0 0 1 0 1
+0 0 0 1 0
+0 0 0 1 0
+4 5 4
+0 0 1 0 1
+0 0 1 0 1
+0 0 0 1 0
+0 0 0 1 0
+3 3 2
+0 1 0
+0 1 1
+0 0 0
+3 3 3
+0 1 0
+0 1 1
+0 0 0
+*/
+
+
+
+-------------------------------------------------------
+//fisherman
+#include<bits/stdc++.h>
+int gateNo=3,n;
+int spots[20]= {0},gateCap[5],gatePos[5]= {0},dis[20]= {0};
+using namespace std;
+void printSpots()
+{
+    for(int i=1; i<=n; i++)
+    {
+        cout<<spots[i]<<" ";
+    }
+    cout<<endl;
+}
+void resetAll()
+{
+    memset(spots,0,sizeof(spots));
+    memset(dis,0,sizeof(dis));
+}
+void placeFisherMan(int loc)
+{
+    int left=gatePos[loc],right=gatePos[loc],cap=gateCap[loc];
+    if(!spots[left])
+    {
+        spots[left]=loc;
+        dis[left]=gatePos[loc]-left+1;
+        cap--;
+
+    }
+    left--;
+    right++;
+    while(left!=0)
+    {
+        //printSpots();
+        if(spots[left])
+        {
+            left--;
+            continue;
+        }
+        if(cap==0)
+        {
+            return;
+        }
+        spots[left]=loc;
+        dis[left]=gatePos[loc]-left+1;
+        cap--;
+        left--;
+    }
+    while(right!=n+1)
+    {
+        //printSpots();
+        if(spots[right])
+        {
+            right++;
+            continue;
+        }
+        if(cap==0)
+        {
+            return;
+        }
+        spots[right]=loc;
+        dis[right]=right-gatePos[loc]+1;
+        cap--;
+        right++;
+    }
+}
+int main()
+{
+    int min_=1e9,combo[6][3]= {{1,2,3},{1,3,2},{2,1,3},{2,3,1},{3,1,2},{3,2,1}};
+    cin>>n;
+    cin>>gatePos[1]>>gatePos[2]>>gatePos[3];
+    cin>>gateCap[1]>>gateCap[2]>>gateCap[3];
+    for(int i=0; i<6; i++)
+    {
+        resetAll();
+        for(int j=0; j<3; j++)
+        {
+            placeFisherMan(combo[i][j]);
+        }
+        int sum=0;
+        for(int i=1; i<=n; i++)
+        {
+            //cout<<spots[i]<<" "<<dis[i]<<endl;
+            sum=sum+dis[i];
+        }
+        min_=min(sum,min_);
+        cout<<sum<<endl;
+    }
+    cout<<min_<<endl;
+    return 0;
+}
+
+-------------------------------------
+//warmhole
+#include<bits/stdc++.h>
+using namespace std;
+int n,ans=1e9,mark[100],warmHole[20][20];
+int manhattonDistance(int sx,int sy,int dx,int dy){
+    int x=(sx>dx)?(sx-dx):(dx-sx);
+    int y=(sy>dy)?(sy-dy):(dy-sy);
+    return x+y;
+}
+void solve(int sx,int sy,int dx,int dy,int dis){
+    ans=min(ans,manhattonDistance(sx,sy,dx,dy)+dis);
+    for(int i=0;i<n;i++){
+        if(mark[i]==0){
+            mark[i]=1;
+            int tempDistance=manhattonDistance(sx,sy,warmHole[i][0],warmHole[i][1])+dis+warmHole[i][4];
+            solve(warmHole[i][2],warmHole[i][3],dx,dy,tempDistance);
+            tempDistance=manhattonDistance(sx,sy,warmHole[i][2],warmHole[i][3])+dis+warmHole[i][4];
+            solve(warmHole[i][0],warmHole[i][1],dx,dy,tempDistance);
+            mark[i]=0;
+        }
+    }
+}
+void resetAll(){
+    for(int i=0;i<100;i++){
+        mark[i]=0;
+    }
+    for(int i=0;i<20;i++){
+        for(int j=0;j<20;j++){
+            warmHole[i][j]=0;
+        }
+    }
+    ans=1e9;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        resetAll();
+        int sx,sy,dx,dy;
+        cin>>sx>>sy>>dx>>dy;
+        //int n;
+        cin>>n;
+        for(int i=0;i<n;i++){
+            mark[i]=0;
+            for(int j=0;j<5;j++){
+                cin>>warmHole[i][j];
+            }
+        }
+        solve(sx,sy,dx,dy,0);
+        cout<<ans<<endl;
+    }
+    return 0;
+}
+
+--------------------------------------------------
+//rareelement
+#include<bits/stdc++.h>
+using namespace std;
+bool ar[21][21];
+bool visited[21][21];
+int ans[21][21];
+int xa[]= {0,-1,0,1};
+int yb[]= {1,0,-1,0};
+int n,f,r;
+
+typedef struct Point
+{
+    int x,y;
+}P;
+
+typedef struct C
+{
+    int x,y;
+    int dis;
+}C;
+
+C QU[100];
+
+void push(C temp)
+{
+    QU[r].x=temp.x;
+    QU[r].y=temp.y;
+    QU[r].dis=temp.dis;
+    r++;
+}
+
+C pop()
+{
+    C temp;
+    temp.x=QU[f].x;
+    temp.y=QU[f].y;
+    temp.dis=QU[f].dis;
+    f++;
+    return temp;
+}
+
+int isEmpty()
+{
+    return(f==r);
+}
+
+int isSafe(int x,int y)
+{
+    return (x>=0 && x<n && y>=0 && y<n && !visited[x][y] && ar[x][y]);
+}
+
+void bfs(int u,int v)
+{
+    C in;
+    in.x=u;
+    in.y=v;
+    in.dis=0;
+    push(in);
+    visited[u][v]=1;
+    while(!isEmpty())
+    {
+        C out=pop();
+        int uu=out.x;
+        int vv=out.y;
+        int dis=out.dis;
+        ans[uu][vv]=dis;
+        for(int i=0; i<4; i++)
+        {
+            int nx=uu+xa[i];
+            int ny=vv+yb[i];
+            if(isSafe(nx,ny))
+            {
+                C inn;
+                inn.x=nx;
+                inn.y=ny;
+                inn.dis=dis+1;
+                visited[nx][ny]=1;
+                push(inn);
+            }
+        }
+    }
+}
+
+int main()
+{
+    cin>>n;
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            cin>>ar[i][j];
+        }
+    }
+    P rare[100];
+    int q,mx,fans=10000;
+    cin>>q;
+    for(int i=0; i<q; i++)
+    {
+        int a,b;
+        cin>>a>>b;
+        rare[i].x=a;
+        rare[i].y=b;
+    }
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            memset(ans,10000,sizeof(ans));
+            int flag=0;
+            memset(visited,0,sizeof(visited));
+            mx=-1;
+            if(ar[i][j])
+            {
+                f=0;
+                r=0;
+                bfs(i,j);
+                for(int k=0; k<q; k++)
+                {
+                    if(ans[rare[k].x][rare[k].y]==10000){
+                        flag=1;
+                        break;
+                    }
+                }
+                if(!flag){
+                    for(int k=0;k<q;k++){
+                        mx=max(mx,ans[rare[k].x][rare[k].y]);
+                    }
+                }
+                fans=min(fans,mx);
+            }
+        }
+    }
+    cout<<fans<<endl;
+    return 0;
+}
+
+---------------------------------------------
+//ballons
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+int n,arr[100];
+int solve(int l,int r,int n)
+{
+    //cout<<"here";
+    int mx=0;
+    for(int i=l+1; i<r; i++)
+    {
+        int sum=solve(l,i,n)+solve(i,r,n);
+        if(l==0 && r==n)
+        {
+            sum=sum+arr[i];
+        }
+        else
+        {
+            sum=sum+(arr[l]*arr[r]);
+        }
+        //cout<<sum<<endl;
+        mx=max(sum,mx);
+    }
+    return mx;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        for(int i=1; i<=n; i++)
+        {
+            cin>>arr[i];
+        }
+        arr[0]=1;
+        arr[n+1]=1;
+        cout<<solve(0,n+1,n+1)<<"\n";
+    }
+    return 0;
+}
+
+------------------------------------------------------
+//pipe
+/*
+2
+3 4 2 1 4
+0 0 4 0
+1 3 6 0
+5 0 0 0
+3 4 2 1 4
+0 0 4 0
+1 3 6 0
+5 0 0 0
+*/
+
+#include<stdio.h>
+#define ll long long
+#define mx 1e7
+ll n,xS,yS,l,m,dep[100][100],vi[100][100],grid[100][100],f=0,r=0;
+
+struct node{
+    ll x;
+    ll y;
+    ll d;
+};
+node q[100];
+
+void pushQ(ll a,ll b,ll d){
+    node temp;
+    temp.x=a;
+    temp.y=b;
+    temp.d=d;
+    q[r++]=temp;
+    vi[a][b]=1;
+}
+
+node popQ(){
+    node temp;
+    temp.x=q[f].x;
+    temp.y=q[f].y;
+    temp.d=q[f].d;
+    f++;
+    return temp;
+}
+
+bool s1(ll i,ll j){
+    if(i>0 && i<=n && j>0 && j<=m && vi[i][j]==0 && (grid[i][j]==1 || grid[i][j]==3 || grid[i][j]==6 || grid[i][j]==7)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool s2(ll i,ll j){
+    if(i>0 && i<=n && j>0 && j<=m && vi[i][j]==0 && (grid[i][j]==1 || grid[i][j]==2 || grid[i][j]==4 || grid[i][j]==7)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool s3(ll i,ll j){
+        if(i>0 && i<=n && j>0 && j<=m && vi[i][j]==0 && (grid[i][j]==1 || grid[i][j]==3 || grid[i][j]==4 || grid[i][j]==5)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+bool s4(ll i,ll j){
+        if(i>0 && i<=n && j>0 && j<=m && vi[i][j]==0 && (grid[i][j]==1 || grid[i][j]==2 || grid[i][j]==5 || grid[i][j]==6)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+void bfs(ll x, ll y, ll d){
+    pushQ(x,y,d);
+    while(r>f){
+        node temp=popQ();
+        ll u=temp.x;
+        ll v=temp.y;
+        ll c=temp.d;
+        dep[u][v]=c;
+
+        if(grid[u][v]==1 || grid[u][v]==3 || grid[u][v]==4 || grid[u][v]==5){
+            if(s1(u,v+1)){
+                pushQ(u,v+1,c+1);
+            }
+        }
+
+        if(grid[u][v]==1 || grid[u][v]==2 || grid[u][v]==6 || grid[u][v]==5){
+            if(s2(u+1,v)){
+                pushQ(u+1,v,c+1);
+            }
+        }
+
+        if(grid[u][v]==1 || grid[u][v]==3 || grid[u][v]==7 || grid[u][v]==6){
+            if(s3(u,v-1)){
+                pushQ(u,v-1,c+1);
+            }
+        }
+
+        if(grid[u][v]==1 || grid[u][v]==2 || grid[u][v]==4 || grid[u][v]==7){
+            if(s4(u-1,v)){
+                pushQ(u-1,v,c+1);
+            }
+        }
+    }
+}
+
+void allReset(){
+    f=0;
+    r=0;
+    n=0;
+    m=0;
+    l=0;
+    xS=0;
+    yS=0;
+}
+
+int main()
+{
+    ll i,j,t;
+    scanf("%lld",&t);
+    while(t--){
+        allReset();
+        scanf("%lld%lld%lld%lld%lld",&n,&m,&xS,&yS,&l);
+        for(i=1;i<=n;i++){
+            for(j=1;j<=m;j++){
+                scanf("%lld",&grid[i][j]);
+            }
+        }
+        for(i=1;i<=n;i++){
+            for(j=1;j<=m;j++){
+                vi[i][j]=0;
+                dep[i][j]=mx;
+            }
+        }
+        if(grid[xS][yS]!=0){
+            bfs(xS,yS,1);
+        }
+        ll coun=0;
+        for(ll i=1;i<=n;i++){
+            for(ll j=1;j<=m;j++){
+                if(dep[i][j]<=l){
+                    printf("(%lld, %lld)",i,j);
+                    coun++;
+                }
+            }
+        }
+        printf("CCC: %lld\n",coun);
+    }
+    return 0;
+}
+

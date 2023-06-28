@@ -1,0 +1,1 @@
+{"name":"Local: 1411B","url":"e:\\Codes\\CodeBlocks\\Codeforces\\1411B.Fair Numbers.cpp","tests":[{"id":1632670956106,"input":"4\n1\n282\n1234567890\n1000000000000000000","output":"1\n288\n1234568040\n1000000000000000000"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\Codeforces\\1411B.Fair Numbers.cpp","group":"local","local":true}

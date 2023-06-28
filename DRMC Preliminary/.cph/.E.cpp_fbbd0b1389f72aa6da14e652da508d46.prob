@@ -1,0 +1,1 @@
+{"name":"Local: E","url":"e:\\Codes\\CodeBlocks\\DRMC Preliminary\\E.cpp","tests":[{"id":1675524476644,"input":"6 3\nABBACC","output":"2"},{"id":1675524533172,"input":"3 2\nBBB","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\DRMC Preliminary\\E.cpp","group":"local","local":true}

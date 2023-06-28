@@ -1,0 +1,1 @@
+{"name":"Local: Print the pattern","url":"e:\\Codes\\CodeBlocks\\GFG\\Print the pattern.cpp","tests":[{"id":1656078203278,"input":"","output":"3 3 3 2 2 2 1 1 1 $3 3 2 2 1 1 $3 2 1 $"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\GFG\\Print the pattern.cpp","group":"local","local":true}

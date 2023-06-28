@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"e:\\Codes\\CodeBlocks\\ICPC 2022\\Preli Mock\\B.cpp","tests":[{"id":1676020343461,"input":"3\n100 7 10\n300 20 15\n500 50 20","output":"Case 1: Yes\nCase 2: Yes\nCase 3: No"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\ICPC 2022\\Preli Mock\\B.cpp","group":"local","local":true}

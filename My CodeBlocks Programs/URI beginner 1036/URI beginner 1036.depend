@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1569402968 source:c:\users\imamhossain\documents\my codeblocks programs\uri beginner 1036\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

@@ -1,0 +1,43 @@
+Tanvir bhaiya's 
+"Intermediate Competitive Programming" Course:
+(Jamil sir's lecture: https://drive.google.com/file/d/1hcZnKXFGiUWc-_zhdceDVAq16rmkuVtv/view?usp=sharing)
+
+--------------------------------
+
+Class-1: Prefix Sum
+Videos:
+1st part:
+https://drive.google.com/file/d/1BITNiRyQvqE5ZGB4YE647HD-WaD5Eb_L/view?usp=sharing
+2nd part:
+https://drive.google.com/file/d/1XJpds7e8GP4sYxGSZkH9oZsWaTXwywVi/view?usp=sharing
+
+Problems based on 1st class:
+
+Spoj: Cumulative Sum Query
+CF: Kuriyama Mirai's Stones
+CF: Ilya and queries 
+CF: Karen and Coffee
+CC: Spread The Word
+CC- Rectangular Queries
+
+CC-Codechef
+CF-Codeforces
+
+---------------------------------------
+
+Class-2: 
+Video:
+https://drive.google.com/file/d/1tByr3s7Rz-HA-kBb1Al92t3PT3bJdCSh/view?usp=sharing
+
+Problems Based on 2nd Class:
+
+Spoj: Prime1 - Prime generator
+UVA: 543
+UVA: 686
+UVA:10140
+UVA:10394
+UVA:897
+
+-------------------------------
+
+

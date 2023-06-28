@@ -1,0 +1,5 @@
+1. 3 // 2 ("//" will round the value 1.5 to 1)
+1
+2. 2 ** 3 ("**" means "^", means power)
+8
+3.

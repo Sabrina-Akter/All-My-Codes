@@ -1,0 +1,1 @@
+{"name":"Local: Segmented Sieve","url":"e:\\Codes\\CodeBlocks\\Segmented Sieve.cpp","tests":[{"id":1660656430591,"input":"2\n1 10\n2 5","output":"4\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\Segmented Sieve.cpp","group":"local","local":true}

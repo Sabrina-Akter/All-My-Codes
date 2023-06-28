@@ -1,0 +1,1 @@
+{"name":"Local: 1598A","url":"e:\\Codes\\CodeBlocks\\Codeforces\\1598A. Computer Game.cpp","tests":[{"id":1634033103580,"input":"4\n3\n000\n000\n4\n0011\n1100\n4\n0111\n1110\n6\n010101\n101010","output":"YES\nYES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Codes\\CodeBlocks\\Codeforces\\1598A. Computer Game.cpp","group":"local","local":true}

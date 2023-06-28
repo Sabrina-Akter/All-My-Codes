@@ -1,0 +1,1 @@
+{"name":"Local: 1519A","url":"d:\\Codes\\CodeBlocks\\Codeforces\\1519A. Red and Blue Beans.cpp","tests":[{"id":1630249323696,"input":"4\n1 1 0\n2 7 3\n6 1 4\n5 4 0","output":"YES\nYES\nNO\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeBlocks\\Codeforces\\1519A. Red and Blue Beans.cpp","group":"local","local":true}
