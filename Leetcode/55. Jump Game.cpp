@@ -1,33 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool canJump(vector<int>& nums) {
-       int i, size=nums.size();
-       bool ans = false;
-       for(i=0;;)
-       {
-            cout << i << endl;
-            if(i>=size-1)
+bool canJump(vector<int> &nums)
+{
+    if(nums.size()==1)
+    {
+        return true;
+    }
+    int i = nums.size() - 2, goal = nums.size() - 1;
+    while (1)
+    {
+        int steps = goal - i;
+        if (i == 0)
+        {
+            if (nums[0] >= steps)
             {
-                ans =  true;
-                break;
-            }
-            else if(nums[i]==0)
-            {
-                ans = false;
-                break;
+                return true;
             }
             else
             {
-                i+=nums[i];
+                return false;
             }
-       }
-       return ans;
+        }
+        if (nums[i] >= steps)
+        {
+            goal = i;
+            ;
+        }
+        i--;
     }
+}
 
 int main()
 {
-    vector<int> v = {2,0};
-    canJump(v);
+    vector<int> v = {2, 0, 1, 2, 0, 2, 0, 1, 2, 4};
+    cout << canJump(v) << endl;
     return 0;
 }

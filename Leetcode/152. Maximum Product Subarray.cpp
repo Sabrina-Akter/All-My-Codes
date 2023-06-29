@@ -2,29 +2,37 @@
 using namespace std;
 
 int maxProduct(vector<int>& nums) {
-    int pro1 = 1, pro2 = 1, mx = INT32_MIN, i;
-    for(i=0;i<nums.size();i++)
-    {
-        pro1*=nums[i];
-        pro2*=nums[i];
-        mx = max(mx, pro1);
-        mx = max(mx, pro2);
-        if(pro1<=0)
+        int i, mx = INT_MIN, pre=1, suf=1;
+        for(i=0;i<nums.size();i++)
         {
-            pro1 = 1;
+            
+            if(nums[i]==0)
+            {
+                pre = 1;
+                mx = max(mx, 0);
+            }
+            else
+            {
+                pre*=nums[i];
+                mx = max(mx, pre);
+            }
+            if(nums[nums.size()-i-1]==0)
+            {
+                suf = 1;
+                mx = max(mx, 0);
+            }
+            else
+            {
+                suf*=nums[nums.size()-i-1];
+                mx = max(mx, suf);
+            }
         }
-        if(pro1==0)
-        {
-            pro2 = 1;
-        }
-    }
-    cout << mx << endl;
-    return mx;
+        return mx;
     }
 
 int main()
 {
-    vector <int> nums = {-2,2,-2,2,-2};
-    maxProduct(nums);
+    vector <int> nums = {-2,-2,-6,0,-16,0,-2,-4,0};
+    cout << maxProduct(nums) << endl;;
     return 0;
 }
