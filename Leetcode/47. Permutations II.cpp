@@ -3,12 +3,16 @@ using namespace std;
 
 int done[10];
 vector<vector<int>> ans;
-
+map <vector<int>, int> m;
 void f(vector<int>& nums, int sum, vector<int>& t)
 {
     if(sum==nums.size())
     {
-        ans.push_back(t);
+        m[t]++;
+        if(m[t]==1)
+        {
+            ans.push_back(t);
+        }
     }
     else
     {
@@ -26,7 +30,7 @@ void f(vector<int>& nums, int sum, vector<int>& t)
     }
 }
 
-vector<vector<int>> permute(vector<int>& nums) {
+vector<vector<int>> permuteUnique(vector<int>& nums) {
         memset(done, 0, sizeof(done));
         vector<int> t;
         f(nums, 0, t);
@@ -35,8 +39,8 @@ vector<vector<int>> permute(vector<int>& nums) {
 
 int main()
 {
-    vector <int> nums = {1,2,3,1,2,3};
-    permute(nums);
+    vector <int> nums = {1,1};
+    permuteUnique(nums);
 
     return 0;
 }
