@@ -30,7 +30,7 @@ int main()
     cin >> t;
     while(t--)
     {
-        ll n, i, ind_1, ind_2, ind_3, ind_mx;
+        ll n, i, ind_1, ind_2, ind_n, x, y;
         cin >> n;
         vll v(n);
         for(i=0;i<n;i++)
@@ -40,68 +40,36 @@ int main()
             {
                 ind_1 = i+1;
             }
-            if(v[i]==2)
+            else if(v[i]==2)
             {
                 ind_2 = i+1;
             }
-            if(v[i]==3)
+            else if(v[i]==n)
             {
-                ind_3 = i+1;
-            }
-            if(v[i]==n)
-            {
-                ind_mx = i+1;
+                ind_n = i+1;
             }
         }
-        if(ind_1==n-1 && ind_mx==n)
+        if((ind_1<ind_n && ind_n<ind_2) || (ind_2<ind_n && ind_n<ind_1))
         {
-            cout << n-1 << " " << n << nl;
+            x = ind_n, y = ind_n;
         }
-        else if(ind_1==2 && ind_mx==1)
+        else if(ind_1<ind_2 && ind_2<ind_n)
         {
-            cout << 1 << " " << 2 << nl;
+            x = ind_2, y = ind_n;
         }
-        else if(ind_mx==2)
+        else if(ind_2<ind_1 && ind_1<ind_n)
         {
-            cout << 1 << " " << ind_1 << nl;
+            x = ind_1, y = ind_n;
         }
-        else if(ind_mx==n-1)
+        else if(ind_n<ind_1 && ind_1<ind_2)
         {
-            cout << n << " " << ind_1 << nl;
+            x = ind_1, y = ind_n;
         }
-        else if(ind_1==1)
+        else if(ind_n<ind_2 && ind_2<ind_1)
         {
-            cout << 2 << " " << ind_mx << nl;
+            x = ind_2, y = ind_n;
         }
-        else if(ind_1==n)
-        {
-            cout << n-1 << " " << ind_mx << nl;
-        }
-        else
-        {
-            if(ind_2==1)
-            {
-                cout << 2 << " " << ind_mx << nl;
-            }
-            else if(ind_2==n)
-            {
-                cout << n-1 << " " << ind_mx << nl;
-            }
-            else
-            {
-                int dir_3 = ind_1-ind_3;
-                //Left
-                if(dir_3>0)
-                {
-                    cout << n << " " << ind_2 << nl;
-                }
-                //Right
-                else
-                {
-                    cout << 1 << " " << ind_2 << nl;
-                }
-            }
-        }
+        cout << x << " " << y << nl; 
     }
     return 0;
 }
