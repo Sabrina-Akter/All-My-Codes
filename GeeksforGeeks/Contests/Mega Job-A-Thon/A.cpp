@@ -6,27 +6,32 @@ using namespace std;
 //User function Template for C++
 class Solution{   
 public:
-    int mn = INT_MAX;
-    int dp[100005];
-    void f(int n, int m, vector<int> &price, vector<int> &magical_price, int ind, int sum, int cnt)
-    {
-        if(ind==n-1)
-        {
-            if(sum<=m)
-            {
-                mn = min(mn, cnt);
-            }
-        }
-        else
-        {
-            if()
-        }
-    }
     int minimumMagic(int n, int m, vector<int> &price, vector<int> &magical_price)
     {
-        memset(dp, -1, sizeof(dp));
-        f(n, m, price, magical_price, -1, 0, 0);
-        if(mn==INT_MAX)
+        vector <pair<int, int> > pair_v(n);
+        vector <int> p1, p2;
+        int i, sum1=0, sum2=0, mn=n;
+        for(i=0;i<n;i++)
+        {
+            pair_v[i] = {price[i], magical_price[i]};
+        }
+        sort(pair_v.begin(), pair_v.end());
+        for(i=0;i<n;i++)
+        {
+            sum1+=pair_v[i].first;
+            p1.push_back(sum1);
+            sum2+=pair_v[i].second;
+            p2.push_back(sum2);
+        }
+        p2.push_back(0);
+        for(i=0;i<n;i++)
+        {
+            if((p1[i]+(sum2-p2[i]))<=m)
+            {
+                mn = min(mn, n-(i+1));
+            }
+        }
+        if(sum2>m)
         {
             return -1;
         }
