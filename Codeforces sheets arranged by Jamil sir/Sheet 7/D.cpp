@@ -10,11 +10,14 @@ using namespace std;
 
 void digit(ll n)
 {
-    if (n/10 > 0)
+    if(n!=0)
     {
-        digit(n/10);
+        digit(n/=10);
+        if(n!=0)
+        {
+            cout << n%10 << " ";
+        }
     }
-    cout << n%10 << " ";
 }
 int main()
 {
@@ -25,7 +28,7 @@ int main()
     {
         cin >> n;
         digit(n);
-        cout << endl;
+        cout << n%10 << endl;
     }
     return 0;
 }

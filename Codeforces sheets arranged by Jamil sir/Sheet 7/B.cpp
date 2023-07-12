@@ -10,10 +10,10 @@ using namespace std;
 
 void Print(ll n)
 {
-    ll i;
-    for(i=1;i<=n;i++)
+    if(n!=0)
     {
-        cout << i << endl;
+        Print(n-1);
+        cout << n << endl;
     }
 }
 

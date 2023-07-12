@@ -10,18 +10,14 @@ using namespace std;
 
 void Print(ll n)
 {
-    if(n==0)
-    {
-        return;
-    }
-    if(n==1)
+    if(n!=0)
     {
         cout << n;
-    }
-    else
-    {
-        cout << n << " ";
-        return Print(n-1);
+        if(n!=1)
+        {
+            cout << " ";
+        }
+        Print(n-1);
     }
 }
 

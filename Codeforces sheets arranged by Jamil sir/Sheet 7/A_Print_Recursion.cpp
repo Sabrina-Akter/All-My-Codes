@@ -29,22 +29,18 @@ ll cell(ll Query_Row, ll Query_Column, ll Column)
     return cell_no;
 }
 
-ll x = 0, y = 0;
-
-void f(ll n)
+int f(int n)
 {
-   y++;
-   cout << "Y = " << y << nl;
-   if(n==1)
-   {
-
-   }
-   else
-   {
-    f(n-1);
-    x++;
-    cout << "X = " << x << nl;
-   }
+    if(n==0)
+    {
+        return 1;
+    }
+    else
+    {
+        f(n-1);
+        cout << "I love Recursion" << nl;
+    }
+    return 0;
 }
 
 int main()
