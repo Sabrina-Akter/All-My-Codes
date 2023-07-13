@@ -1,88 +1,79 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define N 2010
-bool visit[N];
-vector <int> g[N];
-bool ans = true;
-map <int, int> m;
+map <int, bool> m;
 
-void dfs(int node)
+void dfs(int node, vector<vector<int>>& graph)
 {
-    visit[node]=1;
-    int i, v;
-    if(g[node].size()==0)
+    m[node] = false;
+    int i, flag=0;
+    for(i=0;i<graph[node].size();i++)
     {
-        m[node] = 1;
-    }
-    for(i=0;i<g[node].size();i++)
-    {
-        v = g[node][i];
-        if(visit[v]==0)
+        int x = graph[node][i];
+        if(m.find(x)==m.end())
         {
-            dfs(v);
+            dfs(x, graph);
+            if(m[x]==false)
+            {
+                flag=1;
+            }
         }
+        else
+        {
+            if(m[x]==false)
+            {
+                flag=1;
+            }
+        }
+    }
+    if(flag==0)
+    {
+        m[node] = true;
     }
 }
 
 bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        int i, u, v;
-        for(i=0;i<numCourses;i++)
-        {
-            m[numCourses] = 1;
-        }
+        int i, cnt=0;
+        vector<vector<int>> graph(numCourses);
         for(i=0;i<prerequisites.size();i++)
         {
-            u = prerequisites[i][0];
-            v = prerequisites[i][1];
-            if(u==v)
-            {
-                return false;
-            }
-            m[u] = 0, m[v] = 0;
-            g[u].push_back(v);
+            int a = prerequisites[i][0], b = prerequisites[i][1];
+            graph[a].push_back(b);
         }
         for(i=0;i<numCourses;i++)
         {
-            if(visit[i]==0)
+            if(m.find(i)==m.end())
             {
-                dfs(i);
-            }
-        }
-        while(1)
-        {
-            int cnt=0;
-            for(i=0;i<prerequisites.size();i++)
-            {
-                u = prerequisites[i][0];
-                v = prerequisites[i][1];
-                if(m[v]==1 && m[u]==0)
+                dfs(i, graph);
+                if(m[i]==true)
                 {
                     cnt++;
-                    m[u] = 1;
                 }
             }
-            if(cnt==0)
+            else
             {
-                break;
+                if(m[i]==true)
+                {
+                    cnt++;
+                }
             }
         }
-        for(i=0;i<numCourses;i++)
+        if(cnt==numCourses)
         {
-            if(m[ans]==0)
-            {
-                ans = false;
-                break;
-            }
+            cout << "true" << endl;
+            return true;
         }
-        cout << ans << endl;
-        return ans;    
+        else
+        {
+            cout << "false" << endl;
+            return false;
+        }
     }
 
 int main()
 {
-    int numCourses = 3;
-    vector<vector<int>> v = {{1,0},{1,2},{0,1}};
+    int numCourses = 4;
+    vector<vector<int>> v = {{3,2},{2,1},{1,0},{1,3}};
     canFinish(numCourses, v);
     return 0;
 }
