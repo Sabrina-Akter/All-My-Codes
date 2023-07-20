@@ -34,9 +34,15 @@ int main()
         cin >> v[i];
     }
     ll left = 0, right = *max_element(all(v)) , mid, ans;
-    while(right-left>0)
+    while(left<right)
     {
+        double L = left, R = right, check;
+        check = (L+R)/2;
         mid = (left+right)/2;
+        if(mid!=check)
+        {
+            mid++;
+        }
         ll sum=0;
         for(i=0;i<trees;i++)
         {
@@ -47,21 +53,18 @@ int main()
         }
         if(sum==need)
         {
-            if(sum==need)
-            {
-                ans = mid;
-            }
+            ans = mid;
             break;
         }
         else if(sum>need)
         {
-            left = mid+1;
+            left = mid;
+            ans = left;
         }
         else if(sum<need)
         {
             right = mid-1;
         }
-        ans = mid;
     }
     cout << ans << nl;
     return 0;
