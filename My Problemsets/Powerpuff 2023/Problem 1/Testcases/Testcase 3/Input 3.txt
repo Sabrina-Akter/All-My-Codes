@@ -1,0 +1,411 @@
+10
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+20
+100 1
+Recursion 
+100 1
+DP 
+100 1
+Graph
+100 1
+Tree
+100 1
+Maths
+100 1
+String
+100 1
+Stack
+100 1
+Queue 
+100 1
+Hashing
+100 1
+Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+80 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+50 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+70 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+90 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+95 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
+100 10
+Recursion DP Graph Tree Maths String Stack Queue Hashing Searching
