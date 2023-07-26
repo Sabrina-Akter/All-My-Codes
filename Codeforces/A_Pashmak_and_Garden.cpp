@@ -26,136 +26,38 @@ int KY[]={-1,1,-2,2,-2,2,-1,1}; // Knight's Move
 int main()
 {
     fastt;
-    ll i, x;
-    vll v(4);
-    for(i=0;i<4;i++)
+    int x1, y1, x2, y2, x3, y3, x4, y4;
+    cin >> x1 >> y1 >> x2 >> y2;
+
+    int x_diff = x1 - x2;
+    int y_diff = y1 - y2;
+
+    if (x_diff != 0 and y_diff != 0)
     {
-        cin >> v[i];
-        if(v[i]!=0)
-        {
-            x = v[i];
-        }
+        x3 = x1;
+        y3 = y2;
+        x4 = x2;
+        y4 = y1;
     }
-    vector <pair<ll, ll> > v1, p1, p2, p3;
-    v1 = {{v[0], v[1]}, {v[2], v[3]}};
-    p1 = {{0,0}, {0,x}, {x,0}, {x,x}};
-    p2 = {{0,0}, {0,x}, {-x,0}, {-x,x}};
-    p3 = {{0,0}, {0,-x}, {x,0}, {x,-x}};
-    ll cnt1=0, cnt2=0;
-    unordered_map <ll, ll> m1, m2, m3;
-    for(i=0;i<p1.size();i++)
+    else if (x_diff != 0)
     {
-        if(v1[0].first==p1[i].first && v1[0].second==p1[i].second)
-        {
-            cnt1++;
-            m1[i] = 1;
-        }
-    }
-    if(cnt1==1)
-    {
-        for(i=0;i<p1.size();i++)
-        {
-            if(v1[1].first==p1[i].first && v1[1].second==p1[i].second)
-            {
-                cnt2++;
-                m1[i] = 1;
-            }
-        }
-        if(cnt1==1 && cnt2==1)
-        {
-            for(i=0;i<p1.size();i++)
-            {
-                if(m1[i]==0)
-                {
-                    cout << p1[i].first << " " << p1[i].second << " ";
-                }
-            }
-            cout << nl;
-            return 0;
-        }
-        else
-        {
-            cout << -1 << nl;
-            return 0;
-        }
-    }
-    cnt1=0, cnt2=0;
-    for(i=0;i<p2.size();i++)
-    {
-        if(v1[0].first==p2[i].first && v1[0].second==p2[i].second)
-        {
-            cnt1++;
-            m2[i] = 1;
-        }
-    }
-    if(cnt1==1)
-    {
-        for(i=0;i<p2.size();i++)
-        {
-            if(v1[1].first==p2[i].first && v1[1].second==p2[i].second)
-            {
-                cnt2++;
-                m2[i] = 1;
-            }
-        }
-        if(cnt1==1 && cnt2==1)
-        {
-            for(i=0;i<p2.size();i++)
-            {
-                if(m2[i]==0)
-                {
-                    cout << p2[i].first << " " << p2[i].second << " ";
-                }
-            }
-            cout << nl;
-            return 0;
-        }
-        else
-        {
-            cout << -1 << nl;
-            return 0;
-        }
-    }
-    cnt1=0, cnt2=0;
-    for(i=0;i<p3.size();i++)
-    {
-        if(v1[0].first==p3[i].first && v1[0].second==p3[i].second)
-        {
-            cnt1++;
-            m3[i] = 1;
-        }
-    }
-    if(cnt1==1)
-    {
-        for(i=0;i<p3.size();i++)
-        {
-            if(v1[1].first==p3[i].first && v1[1].second==p3[i].second)
-            {
-                cnt2++;
-                m3[i] = 1;
-            }
-        }
-        if(cnt1==1 && cnt2==1)
-        {
-            for(i=0;i<p3.size();i++)
-            {
-                if(m3[i]==0)
-                {
-                    cout << p3[i].first << " " << p3[i].second << " ";
-                }
-            }
-            cout << nl;
-            return 0;
-        }
-        else
-        {
-            cout << -1 << nl;
-            return 0;
-        }
+        x3 = x1;
+        y3 = y1 + abs(x_diff);
+        x4 = x2;
+        y4 = y2 + abs(x_diff);
     }
     else
     {
-        cout << "-1" << nl;
+        x3 = x1 + abs(y_diff);
+        y3 = y1;
+        x4 = x2 + abs(y_diff);
+        y4 = y2;
     }
+
+    if (x_diff != 0 and y_diff != 0 and abs(x_diff) != abs(y_diff))
+        cout << -1 << endl;
+    else
+        cout << x3 << " " << y3 << " " << x4 << " " << y4 << endl;
+    return 0;
     return 0;
 }
