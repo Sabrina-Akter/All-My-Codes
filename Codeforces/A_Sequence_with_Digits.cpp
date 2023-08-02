@@ -30,11 +30,16 @@ int main()
     cin >> t;
     while(t--)
     {
-        ll x, n, i, j;
+        ll x, n, i, j, ans, till;
         cin >> x >> n;
-        vll v(n);
+        till = n;
+        if(n>2000)
+        {
+            till = 2000;
+        }
+        vll v(2001);
         v[0] = x;
-        for(i=1;i<n;i++)
+        for(i=1;i<till;i++)
         {
             string s = to_string(v[i-1]);
             string min_char = "9", max_char = "0";
@@ -51,8 +56,20 @@ int main()
             }
             int a = stoi(max_char), b = stoi(min_char);
             v[i] = v[i-1] + (a*b);
+            ans = v[i];
+            if(v[i]==v[i-1])
+            {
+                break;
+            }
         }
-        cout << v[n-1] << nl;
+        if(n==1)
+        {
+            cout << x << nl;
+        }
+        else
+        {
+            cout << ans << nl;
+        }
     }
     return 0;
 }

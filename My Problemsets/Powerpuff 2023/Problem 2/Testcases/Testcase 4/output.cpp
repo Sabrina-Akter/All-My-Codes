@@ -6,6 +6,7 @@ const char nl = '\n';
 int main() {
     freopen("Input 4.txt", "r", stdin);
     freopen("Output 4.txt", "w", stdout);
+    fastt;
     ll trees, need, i;
     cin >> trees >> need;
     vector <ll> v(trees);
@@ -13,8 +14,8 @@ int main() {
     {
         cin >> v[i];
     }
-    ll left = 0, right = *max_element(v.begin(), v.end()) , mid, ans;
-    while(left<right)
+    ll left = 0, right = *max_element(v.begin(), v.end()) , mid, ans, f=0;
+    while(left<=right)
     {
         double L = left, R = right, check;
         check = (L+R)/2;
@@ -44,6 +45,14 @@ int main() {
         else if(sum<need)
         {
             right = mid-1;
+        }
+        if(left==right)
+        {
+            f++;
+            if(f==2)
+            {
+                break;
+            }
         }
     }
     cout << ans << nl;
