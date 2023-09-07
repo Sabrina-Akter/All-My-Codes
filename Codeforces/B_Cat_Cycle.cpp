@@ -26,6 +26,22 @@ int KY[]={-1,1,-2,2,-2,2,-1,1}; // Knight's Move
 int main()
 {
     fastt;
-    
+    ll t;
+    cin >> t;
+    while(t--)
+    {
+        ll n;
+        cin>>n; 
+        ll k;
+        cin>>k;  
+        if(n%2==0)
+        {
+            cout<<(k-1)%n + 1<<endl;
+        }
+        else
+        {
+            cout<<(k-1+((k-1)/((n-1)/2)))%n+1<<endl;
+        }      
+    }   
     return 0;
 }
