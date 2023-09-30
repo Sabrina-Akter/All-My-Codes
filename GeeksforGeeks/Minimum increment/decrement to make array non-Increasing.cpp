@@ -13,20 +13,19 @@ class Solution{
 public:
     int minOperations(int *a,int n)
     {
-        if(n==1)
+        int ans = 0;
+        priority_queue<int> pq;
+        for (int i = n - 1; i >= 0; i--) 
         {
-            return 0;
-        }
-        int i, sum=0, need;
-        for(i=1;i<n;i++)
-        {
-            if(a[i]>a[i-1])
+            if (!pq.empty() and pq.top() > arr[i]) 
             {
-                need = a[i-1];
-                sum+=need;
+                ans += abs(arr[i] - pq.top());
+                pq.pop();
+                pq.push(arr[i]);
             }
+            pq.push(arr[i]);
         }
-        return need;
+        return ans;
     }
 };
 
