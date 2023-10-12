@@ -1,18 +1,30 @@
-class Solution {
-public:
+#include <bits/stdc++.h>
+using namespace std;
+
     vector<int> twoSum(vector<int>& nums, int target) {
-        map<int,int> m;
-        vector<int> v;
-        for(int i=0;i<nums.size();i++)
+        vector <int> ans;
+        unordered_map <int, int> exist;
+        for(int i=0; i<nums.size(); i++)
         {
-            if(m.find(target-nums[i])!=m.end())
+            int remainder = target - nums[i];
+            if(exist.find(remainder)!=exist.end())
             {
-                v.push_back(m[target-nums[i]]);
-                v.push_back(i);
-                return v;
+                ans = {exist[remainder], i};
+                break;
             }
-            m[nums[i]]=i;
+            else
+            {
+                exist[nums[i]] = i;
+            }
         }
-        return v;
+        return ans;
     }
-};
+
+int main()
+{
+    vector<int> nums = {2,7,11,15};
+    int target = 9;
+    twoSum(nums, target);
+
+    return 0;
+}
