@@ -1,77 +1,84 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class MyLinkedList {
+class MyLinkedList{
 public:
-    class ListNode {
+    class node{
     public:
-        const static int DUMMY_VALUE = 0;
+        const static int dummy = 0;
         int val;
-        ListNode* next;
-        ListNode(int _val = DUMMY_VALUE)
+        node *next;
+        node(int _val = dummy)
         {
             val = _val;
             next = nullptr;
         }
-        ListNode(int _val, ListNode* _next)
+        node(int _val, node *_next)
         {
             val = _val;
             next = _next;
         }
     };
-
     int len;
-    ListNode* dHead;
+    node *dhead;
 
+    //Function 1:
     MyLinkedList() {
         len = 0;
-        dHead = new ListNode();
+        dhead = new node();
     }
-    
+    //Function 2:
     int get(int index) {
-        if (index < 0 || index >= len) return -1;
-        ListNode* cHead = dHead -> next;
-        while(index--) {
-            cHead = cHead -> next;
+        if (index < 0 || index >= len)
+        {
+            return -1;
         }
-        return cHead -> val;
+        node *chead = dhead->next;
+        while(index--)
+        {
+            chead = chead->next;
+        }
+        return chead -> val;
     }
-    
+    //Function 3: 
     void addAtHead(int val) {
         addAtIndex(0, val);
     }
-    
-    void addAtTail(int val) {
+    //Function 4: 
+    void addAtTail(int val) { 
         addAtIndex(len, val);
     }
-    
+    //Function 5:  
     void addAtIndex(int index, int val) {
-        if (index > len) return;
-        ListNode* cHead = dHead;
-        while(index--) {
-            cHead = cHead -> next;
+        if(index>len)
+        {
+            return;
         }
-        ListNode* block = new ListNode(val, cHead -> next);
-        cHead -> next = block;
+        node *chead = dhead;
+        while(index--)
+        {
+            chead = chead->next;
+        }
+        node *new_block = new node(val);
+        node *next_block = chead->next;
+
+        chead->next = new_block;
+        new_block->next = next_block;
         len++;
     }
-    
-    void deleteAtTail() {
-        deleteAtIndex(len - 1);
-    }
-
-    void deleteAtHead() {
-        deleteAtIndex(0);
-    }
-
+    //Function 6:       
     void deleteAtIndex(int index) {
-        if (index < 0 || index >= len) return;
-        ListNode* cHead = dHead;
-        while(index--) {
-            cHead = cHead -> next;
+        if(index<0 || index>=len)
+        {
+            return;
         }
-        ListNode* delete_candidate = cHead -> next;
-        cHead -> next = cHead -> next -> next;
+        node *chead = dhead;
+        while(index--)
+        {
+            chead = chead->next;
+        }
+        node *delete_candidate = chead->next;
+        chead->next = chead->next->next;
         delete(delete_candidate);
         len--;
     }
@@ -79,10 +86,5 @@ public:
 
 int main()
 {
-    MyLinkedList x;
-    x.addAtIndex(0, 100);
-    x.addAtIndex(1, 300);
-    x.addAtIndex(0, 200);
-    cout << x.get(0) << endl;
     return 0;
 }
