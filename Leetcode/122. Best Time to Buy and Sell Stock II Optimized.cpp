@@ -3,15 +3,20 @@ using namespace std;
 //TC = O(n)
 //SC = O(1)
     int maxProfit(vector<int>& prices) {
-        int i, mx = prices[i], mn = prices[i], dif, sum=0, n=prices.size();
-        for(i=1;i<n;i++)
+        int n=prices.size();
+        int mx = prices[0]; 
+        int mn = prices[0]; 
+        int dif; 
+        int sum=0; 
+        
+        for(int i=1;i<n;i++)
         {
             if(prices[i]<prices[i-1])
             {
                 dif = mx-mn;
                 sum+=dif;
-                mn = prices[i];
-                mx = prices[i]; 
+                mx = prices[i];
+                mn = prices[i]; 
             }
             mx = max(mx, prices[i]);
         }

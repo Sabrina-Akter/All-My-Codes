@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//TC = O(1)
+//SC = O(n)
 class RandomizedSet {
 public:
     unordered_map <long long, long long> un_map;
@@ -14,12 +16,9 @@ public:
         {
             return false;
         }
-        else
-        {
-            un_map[val] = r_set.size();
-            r_set.push_back(val);
-            return true;
-        }
+        un_map[val] = r_set.size();
+        r_set.push_back(val);
+        return true;
     }
     
     bool remove(int val) {
@@ -27,17 +26,14 @@ public:
         {
             return false;
         }
-        else
-        {
-            long long val_index = un_map[val];
-            long long last_index = r_set.size()-1;
-            swap(r_set[val_index], r_set[last_index]);
-            r_set.pop_back();
+        long long val_index = un_map[val];
+        long long last_index = r_set.size()-1;
+        swap(r_set[val_index], r_set[last_index]);
+        r_set.pop_back();
 
-            un_map[r_set[val_index]] = val_index;
-            un_map.erase(val);
-            return true;
-        }
+        un_map[r_set[val_index]] = val_index;
+        un_map.erase(val);
+        return true;
     }
     
     int getRandom() {

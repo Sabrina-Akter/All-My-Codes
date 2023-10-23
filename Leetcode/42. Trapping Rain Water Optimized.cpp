@@ -2,37 +2,25 @@
 using namespace std;
 
     int trap(vector<int>& height) {
-        int n = height.size();
-        int left = 0, right = n-1;
-        int ans=0, left_max=0, right_max=0;
-        while(left<=right){
+        int L = 0, R = height.size() - 1;
+        int L_mx = 0, R_mx = 0, total_area = 0;
+        while(L < R)
+        {
+            L_mx = max(L_mx, height[L]);
+            R_mx = max(R_mx, height[R]);  
             
-            if(height[left]<=height[right])
+            if (height[L] < height[R])
             {
-                if(height[left]>=left_max)
-                {
-                    left_max=height[left];
-                } 
-                else
-                {
-                    ans+=left_max-height[left];
-                }  
-                left++;
+                total_area += L_mx - height[L];
+                L++;
             }
             else
             {
-                if(height[right]>=right_max)
-                {
-                    right_max= height[right];
-                } 
-                else
-                {
-                    ans+=right_max-height[right];
-                }        
-                right--;
+                total_area += R_mx - height[R];
+                R--;
             }
         }
-        return ans;
+        return total_area;       
     }
 
 int main()

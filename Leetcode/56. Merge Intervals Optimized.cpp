@@ -5,9 +5,9 @@ using namespace std;
         sort(intervals.begin(), intervals.end());
         vector<vector<int>> ans;
 
-        int i, n=intervals.size();
+        int n=intervals.size();
 
-        for(i=0;i<n;i++)
+        for(int i=0;i<n;i++)
         {
             if(i==0 || ans.back()[1]<intervals[i][0])
             {
@@ -18,7 +18,7 @@ using namespace std;
                 ans.back()[1] = max(ans.back()[1], intervals[i][1]);
             }
         }
-        return ans;
+        return ans;       
     }
 
 int main()

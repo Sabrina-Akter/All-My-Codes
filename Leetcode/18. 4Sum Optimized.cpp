@@ -4,12 +4,14 @@ using namespace std;
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
         sort(nums.begin(), nums.end());
         vector<vector<int>>ans;
-        int i, j, p1, p2, n=nums.size();
+        int n=nums.size();
+        int p1;
+        int p2;
         long long sum;
-        for(i=0;i<n;i++)
+        for(int i=0;i<n;i++)
         {
             if(i>0 && nums[i]==nums[i-1]) continue;
-            for(j=i+1;j<n;j++)
+            for(int j=i+1;j<n;j++)
             {
                 if(j>i+1 && nums[j]==nums[j-1]) continue;
                 p1 = j+1;
@@ -39,7 +41,7 @@ using namespace std;
                 }
             }
         }
-        return ans;
+        return ans;       
     }
 
 int main()

@@ -4,8 +4,11 @@ using namespace std;
     vector<vector<int>> threeSum(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         vector<vector<int>> ans;
-        int i, p1, p2, n=nums.size();
-        for(i=0;i<n;i++)
+        int i; 
+        int n=nums.size();
+        int p1;
+        int p2;      
+        for(int i=0;i<n;i++)
         {
             if(i>0 && nums[i]==nums[i-1]) continue;
             int p1=i+1, p2=n-1;
@@ -36,7 +39,7 @@ using namespace std;
                 }
             }
         }
-        return ans;
+        return ans;      
     }
 
 int main()

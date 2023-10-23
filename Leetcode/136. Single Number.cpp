@@ -2,12 +2,12 @@
 using namespace std;
 
     int singleNumber(vector<int>& nums) {
-        int XOR=0;
+        int singleElement=0;
         for(int element : nums)
         {
-            XOR^=element;
+            singleElement^=element;
         }
-        return XOR;
+        return singleElement;
     }
 
 int main()

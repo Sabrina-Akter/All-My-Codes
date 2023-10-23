@@ -2,22 +2,17 @@
 using namespace std;
 
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector <int> ans;
         unordered_map <int, int> exist;
         for(int i=0; i<nums.size(); i++)
         {
             int remainder = target - nums[i];
-            if(exist.find(remainder)!=exist.end())
+            if(exist.count(remainder))
             {
-                ans = {exist[remainder], i};
-                break;
+                return {exist[remainder], i};
             }
-            else
-            {
-                exist[nums[i]] = i;
-            }
+            exist[nums[i]] = i;
         }
-        return ans;
+        return {};        
     }
 
 int main()
