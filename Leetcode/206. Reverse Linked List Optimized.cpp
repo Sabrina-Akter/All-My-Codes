@@ -13,15 +13,16 @@ public:
         ListNode(int x, ListNode *next) : val(x), next(next) {}
     };
     ListNode* reverseList(ListNode* head) {
-        ListNode *dummy = nullptr;
-        while(head!=nullptr)
+        ListNode *previous_block = nullptr;
+        auto *current_block = head;
+        while(current_block!=nullptr)
         {
-            ListNode *next = head->next;
-            head->next = dummy;
-            dummy = head;
-            head = next;
+            auto *next_block = current_block->next;
+            current_block->next = previous_block;
+            previous_block = current_block;
+            current_block = next_block;
         }
-        return dummy;
+        return previous_block;
     }
 };
 

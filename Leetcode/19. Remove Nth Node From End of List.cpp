@@ -14,27 +14,22 @@ struct ListNode {
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode *dummy = new ListNode(0, head);
-        ListNode *first_ptr = dummy;
-        ListNode *second_ptr = dummy;
+        auto *dummy = new ListNode(0, head);
+        auto *slow = dummy;
+        auto *fast = dummy;
         int jump = n+1;
         while(jump--)
         {
-            second_ptr = second_ptr->next;
+            fast = fast->next;
         }
-        while(second_ptr!=nullptr)
+        while(fast!=nullptr)
         {
-            first_ptr = first_ptr->next;
-            second_ptr = second_ptr->next;
+            slow = slow->next;
+            fast = fast->next;
         }
-        //Preservations
-        ListNode *delete_candidate = first_ptr->next;
-        ListNode *next_connection = delete_candidate->next;
-        //Connection
-        first_ptr->next = next_connection;
-        //Deleting from memory
+        auto *delete_candidate = slow->next;
+        slow->next = slow->next->next;
         delete(delete_candidate);
-        //Return
         return dummy->next;
     }
 };
