@@ -1,59 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        vector<vector<string>> ans;
-        multimap<string, string> m;
-        vector<string> x;
+//TC = O(nm log m)
+//SC = O(nm)
+//Here, n is the number of strings in the input vector and m is the maximum length of a string.
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> groups;
+        for(auto &str:strs)
+        {
+            string sorted_str = str;
+            sort(sorted_str.begin(), sorted_str.end());
+            groups[sorted_str].push_back(str);
+        }
 
-        int i, f=0;
-        for(i=0;i<strs.size();i++)
+        vector<vector<string>> ans;
+        for(auto &group:groups)
         {
-            if(strs[i]=="")
-            {
-                f=1;
-                x.push_back("");
-            }
-            else
-            {
-                string n = strs[i];
-                sort(n.begin(), n.end());
-                m.insert({n, strs[i]});
-            }
-        }
-        if(f==1)
-        {
-            ans.push_back(x);
-            x.clear();
-        }
-        string last="";
-        for(auto it=m.begin();it!=m.end();it++)
-        {
-            if(it==m.begin())
-            {
-                x.push_back((*it).second);
-            }
-            else
-            {
-                if(last==(*it).first)
-                {
-                   x.push_back((*it).second); 
-                }
-                else
-                {
-                    ans.push_back(x);
-                    x.clear();
-                    x.push_back((*it).second);
-                }
-            }
-            last = (*it).first;
-        }
-        if(x.size()!=0)
-        {
-            ans.push_back(x);
+            ans.push_back(group.second);
         }
         return ans;
     }
+};
 
 int main()
 {

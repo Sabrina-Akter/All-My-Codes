@@ -1,19 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isAnagram(string s, string t) {
-        sort(s.begin(), s.end());
-        sort(t.begin(), t.end());
+//TC = O(n)
+//SC = O(1), because the size of the extra memory is constant (26).
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if(s.size()!=t.size()) return false;
 
-        if(s==t)
+        int count[26] = {0};
+        int length = s.size();
+
+        for(int i=0; i<length; i++)
         {
-            return true;
+            count[s[i]-'a']++;
+            count[t[i]-'a']--;
         }
-        else
+
+        for(auto &val:count)
         {
-            return false;
+            if(val != 0) return false;
         }
+        return true;
     }
+};
 
 int main()
 {
