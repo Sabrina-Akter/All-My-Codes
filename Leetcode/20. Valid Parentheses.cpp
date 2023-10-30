@@ -1,48 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isValid(string s) {
-      deque <char> d;
-      int i, f=0;
-      for(i=0;i<s.size();i++)
-      {
-        if(s[i]=='(' || s[i]=='[' || s[i]=='{')
+//TC = O(n)
+//SC = O(n)
+class Solution {
+public:
+    bool isValid(string s) {
+        stack <char> Stack;
+        unordered_map <char, char> bracket = {{')', '('}, {']', '['}, {'}', '{'}};
+        
+        for(auto Char:s)
         {
-            d.push_back(s[i]);
-        }
-        else
-        {
-            if(d.size()>0)
-            {
-                if((s[i]==')' && d.back()!='(') || (s[i]==']' && d.back()!='[') || (s[i]=='}' && d.back()!='{'))
-                {
-                    f=1;
-                }
-                else
-                {
-                    d.pop_back();
-                }
-            }
+            if(Char == '(' || Char == '[' || Char == '{') Stack.push(Char);
             else
             {
-                f=1;
+                if(Stack.empty() || Stack.top() != bracket[Char]) return false;
+                else Stack.pop();
             }
         }
-      }
-      if(f==0 && d.size()==0)
-      {
-        return true;
-      }
-      else 
-      {
-        return false;
-      }
+        return Stack.empty();
     }
+};
 
 int main()
 {
-    string s = "()[]{}";
-    isValid(s);
-
     return 0;
 }
