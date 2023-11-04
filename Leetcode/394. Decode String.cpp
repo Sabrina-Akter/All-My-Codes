@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//TC = O(N); where 'N' is the length of the input string.
+//TC = O(|s|)
 //SC = O(M); where 'M' is the maximum depth of nested square brackets in the input string.
 //For example: For input string "3[a2[bc]4[d]]", the maximum nesting depth is 2.
 class Solution 

@@ -1,15 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//TC = O(n)
-//SC = O(n)
-class Solution {
+//TC = O(|s|)
+//SC = O(|s|)
+class Solution 
+{
 public:
-    bool isValid(string s) {
+    bool isValid(string s) 
+    {
         stack <char> Stack;
         unordered_map <char, char> bracket = {{')', '('}, {']', '['}, {'}', '{'}};
         
-        for(auto Char:s)
+        for(auto &Char:s)
         {
             if(Char == '(' || Char == '[' || Char == '{') Stack.push(Char);
             else

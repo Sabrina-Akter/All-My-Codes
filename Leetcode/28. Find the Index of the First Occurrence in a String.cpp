@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//TC = O(m * n), where 'm' is the length of the haystack string, and 'n' is the length of the needle string.
+//TC = O(s1 * s2); s1 = |haystack|, s2 = |needle|
 //SC = O(1)
-class Solution {
+class Solution 
+{
 public:
     bool check_match(string &haystack, string &needle, int i)
     {
@@ -21,7 +22,8 @@ public:
         return false;
     }
 
-    int strStr(string haystack, string needle) {
+    int strStr(string haystack, string needle) 
+    {
         for(int i = 0; i <= haystack.size(); i++)
         {
             if(needle[0] == haystack[i] && check_match(haystack, needle, i)) return i;

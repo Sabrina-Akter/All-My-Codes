@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//TC = O(NlogN)
+//TC = O(NlogN); N = Number of strings in the 'str' vector.
 //SC = O(N)
 class Solution 
 {
@@ -16,7 +16,7 @@ public:
         for (auto &num : nums) str.push_back(to_string(num));
         sort(str.begin(), str.end(), comp); 
 
-        if(str[0]=="0") return "0";
+        if(str[0] == "0") return "0";
 
         string ans = "";
         for (auto &num : str) ans += num;

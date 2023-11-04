@@ -2,8 +2,9 @@
 using namespace std;
 
 //TC = O(|s| + |words| * (|word| * log|s|)); 
-//SC = O(1); The "index" vector's size is constant (26).
-class Solution {
+//SC = O(1); Since the size of the 'index' vector is constant (26).
+class Solution 
+{
 public:
     vector <int> index[26];
     //TC = O(|word| * log|s|)
@@ -20,19 +21,14 @@ public:
         return true;
     }
 
-    int numMatchingSubseq(string s, vector<string>& words) {
+    int numMatchingSubseq(string s, vector<string>& words) 
+    {
         //TC = O(|s|); Here, every character of the string "s" is being traversed.
-        for(int i = 0; i < s.size(); i++)
-        {
-            index[s[i] - 'a'].push_back(i);
-        }
+        for(int i = 0; i < s.size(); i++) index[s[i] - 'a'].push_back(i);
 
         //TC = O(|words| * func_time); Here, every word of the "words" vector is being traversed.
         int count = 0;
-        for(auto &word:words)
-        {
-            count += isSubseq(s, word);
-        }
+        for(auto &word:words) count += isSubseq(s, word);
         return count;
     }
 };

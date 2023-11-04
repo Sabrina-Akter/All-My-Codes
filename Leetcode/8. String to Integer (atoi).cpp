@@ -1,45 +1,43 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int myAtoi(string s) {
-        string ans;
-        int i, n, neg=0;
-        for(i=0;i<s.size();i++)
+//TC = O(|s|)
+//SC = O(1)
+class Solution 
+{
+public:
+    int myAtoi(string s) 
+    {
+        double ans = 0; 
+        int sign = 1;
+        int found = 0;
+        for(int i = 0; i < s.size(); i++)
         {
-            if((s[i]=='-') && (i+1<s.size()) && s[i+1]>='0' && s[i+1]<='9')
+            //Finding the very first valid character (whitespace doesn't count as a valid character):
+            if(found == 0)
             {
-                ans+=s[i];
-                neg=1;
+                if(s[i] == ' ') continue;
+                if(s[i] == '-') sign = -1;
+                else if(s[i] == '+') sign = 1;
+                else if(s[i] >= '0' && s[i] <= '9') ans = (10 * ans) + (s[i] - '0');
+                else break;
+                found = 1;
             }
-            else if(s[i]>='0' && s[i]<='9')
-            {
-                ans+=s[i];
-            }
-        }
-        if(ans.size()==0)
-        {
-            ans = "0";
-        }
-        try {
-            n = stoi(ans);
-        } catch (const out_of_range& e) {
-            if(neg==1)
-            {
-                n = -2147483648;
-            }
+            //After finding the first valid character:
             else
             {
-                n = 2147483647;
+                if(s[i] >= '0' && s[i] <= '9') ans = (10 * ans) + (s[i] - '0');
+                else break;
             }
         }
-        cout << n << endl;
-        return n;
+        ans = sign * ans;
+        if(ans < INT_MIN) ans = INT_MIN;
+        else if(ans > INT_MAX) ans = INT_MAX;
+        return int(ans);
     }
+};
 
 int main()
 {
-    string s = "fghjbn";
-    cout << stoi(s) << endl;
-    myAtoi(s);
     return 0;
 }
