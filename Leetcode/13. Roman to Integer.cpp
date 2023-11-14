@@ -1,70 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int romanToInt(string s) {
-      int i, n = s.size(), sum=0;
-      char next;
-      map <char, int> m;
-      m['I'] = 1, m['V'] = 5, m['X'] = 10, m['L'] = 50, m['C'] = 100, m['D'] = 500, m['M'] = 1000;
-      for(i=0;i<n;i++)
-      {
-        if(i+1==n)
+//TC = O(|s|)
+//SC = O(1); Because the sizes of the two unordered maps are constant (7 and 6).
+class Solution 
+{
+public:
+    int romanToInt(string s) 
+    {
+        int sum = 0;
+        unordered_map <char, int> singles = {{'I', 1}, {'V', 5}, {'X', 10}, {'L', 50}, {'C', 100}, {'D', 500}, {'M', 1000}};
+        unordered_map <string, int> doubles = {{"IV", 4}, {"IX", 9}, {"XL", 40}, {"XC", 90}, {"CD", 400}, {"CM", 900}};
+        
+        for(int i = 0; i < s.size(); i++)
         {
-            next = '*';
+            string combo;
+            if(i + 1 < s.size()) combo = s.substr(i, 2);
+            if(doubles[combo] == 0) sum += singles[s[i]];
+            else
+            {
+                sum += doubles[combo];
+                i++;
+            } 
         }
-        else
-        {
-            next = s[i+1];
-        }
-        //1
-        if(s[i]=='I' && next=='V')
-        {
-            sum+=4;
-            i++;
-        }
-        //2
-        else if(s[i]=='I' && next=='X')
-        {
-            sum+=9;
-            i++;
-        }
-        //3
-        else if(s[i]=='X' && next=='L')
-        {
-            sum+=40;
-            i++;
-        }
-        //4
-        else if(s[i]=='X' && next=='C')
-        {
-            sum+=90;
-            i++;
-        }
-        //5
-        else if(s[i]=='C' && next=='D')
-        {
-            sum+=400;
-            i++;
-        }
-        //6
-        else if(s[i]=='C' && next=='M')
-        {
-            sum+=900;
-            i++;
-        }
-        //7
-        else
-        {
-            sum+=m[s[i]];
-        }
-      }
-      cout << sum << endl;
-      return sum;  
+        return sum;
     }
+};
 
 int main()
 {
-    string  s = "MMMCMXCIX";
-    romanToInt(s);
     return 0;
 }

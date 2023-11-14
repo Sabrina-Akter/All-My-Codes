@@ -1,38 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int countPalindromicSubsequence(string s) {
-        int i, j, cnt=0;
-        unordered_map <char, int> c1, c2, exist;
-        unordered_map<pair<char,char>,int> m;
-        string a = "abcdefghijklmnopqrstuvwxyz";
-        for(i=0;i<s.size();i++)
+class Solution 
+{
+public:
+    int countPalindromicSubsequence(string s) 
+    {
+        unordered_map <char, int> first;
+        unordered_map <char, int> last;
+        for(int i = 0; i < s.size(); i++)
         {
-            exist[s[i]]++;
-            if(exist[s[i]]==1)
-            {
-                c1[s[i]] = i;
-            }
-            c2[s[i]] = i;
+            if(first.count(s[i]) == false) first[s[i]] = i;
+            last[s[i]] = i;
         }
-        for(i=1;i<s.size()-1;i++)
+        string letters = "abcdefghijklmnopqrstuvwxyz";
+        unordered_map <string, int> done;
+        for(int i = 0; i < s.size(); i++)
         {
-            for(j=0;j<a.size();j++)
+            for(int j = 0; j < letters.size(); j++)
             {
-                if(exist[a[j]]>=2 && c1[a[j]]<i && c2[a[j]]>i && m[{s[i], a[j]}]==0)
+                string temp;
+                temp.push_back(letters[j]);
+                temp.push_back(s[i]);
+                temp.push_back(letters[j]);                
+                if((first.count(letters[j]) == true) && (last.count(letters[j]) == true) && done.count(temp) == false)
                 {
-                    cnt++;
-                    m[{s[i], a[j]}] = 1;
+                    if((first[letters[j]] < i) && (i < last[letters[j]]))
+                    {
+                        done[temp] = 1;
+                    }
                 }
             }
         }
-        cout << cnt << endl;
-        return cnt;
+        return done.size();
     }
+};
 
 int main()
 {
-    string s = "aaaaaaaaaaa";
-    countPalindromicSubsequence(s);
     return 0;
 }
