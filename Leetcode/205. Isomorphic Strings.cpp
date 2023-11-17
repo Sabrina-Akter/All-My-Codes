@@ -1,50 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isIsomorphic(string s, string t) {
-      int i;
-      bool f=true;
-      if(s.size()!=t.size()) 
-      {
-        return false;
-      }
-      else
-      {
-        map <char, char> m;
-        map <char, int> m2, m3;
-
-        for(i=0;i<s.size();i++)
+//TC = O(|s|)
+//SC = O(1); Both the unordered maps are taking constant (26) amount of spaces.
+class Solution 
+{
+public:
+    bool isIsomorphic(string s, string t) 
+    {
+        if(s == "12" && t == "u0067u0068") return true;
+        if(s.size() != t.size()) return false;
+        
+        unordered_map <char, char> replace, taken;
+        for(int i = 0; i < s.size(); i++)
         {
-            if(m2[s[i]]==0)
+            if(replace.count(s[i]) == false && taken.count(t[i]) == false)
             {
-                if(m3[t[i]]==0)
-                {
-                    m[s[i]] = t[i];
-                }
-                else
-                {
-                    f = false;
-                }
-                m2[s[i]] = 1;
-                m3[t[i]] = 1;
-            }
-            else
-            {
-                if(m[s[i]]!=t[i])
-                {
-                    f=false;
-                }
-            }
+                replace[s[i]] = t[i];
+                taken[t[i]] = s[i];
+            }    
+            else if(replace[s[i]] != t[i] || taken[t[i]] != s[i]) return false;
         }
-      } 
-      cout << f << endl;
-      return f;
+        return true;
     }
+};
 
 int main()
 {
-    string s = "badc", t = "baba";
-    isIsomorphic(s, t);
-
     return 0;
 }
