@@ -1,9 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//TC = O(N*M); N = Size of the vector "strings". M = Length of the largest string.
+//SC = O(|strings|);
 class Solution 
 {
 public:
+    //TC = O(|s|)
+    //SC = O(|s|); Here, the string "ans" accumulates the characters of string "s".
     string findKey(string &s)
     {
         string ans;
@@ -18,6 +22,8 @@ public:
         return ans;
     }
 
+    //TC = O(N*M); N = Size of the vector "strings". M = Length of the largest string.
+    //SC = O(|strings|); The vector "ans" contains all the strings of the vector "strings".
     vector<vector<string>> groupStrings(vector<string>& strings) 
     {
         unordered_map <string, vector<string>> groups;
