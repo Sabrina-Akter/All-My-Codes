@@ -1,25 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int rob(vector<int>& nums) {
-        int i, sum1=0, sum2=0;
-        for(i=0;i<nums.size();i++)
-        {
-            if(i%2==0)
-            {
-                sum1+=nums[i];
-            }
-            else
-            {
-                sum2+=nums[i];
-            }
-        }
-        return max(sum1,sum2);
+class Solution 
+{
+public:
+    vector <int> memo;
+    int f(vector<int>& nums, int i)
+    {
+        if(i < 0) return 0;
+        if(memo[i] >= 0) return memo[i];
+        return memo[i] = max(f(nums, i - 2) + nums[i], f(nums, i - 1));
     }
+
+    int rob(vector<int>& nums) 
+    {
+        memo.resize(nums.size() + 1, -1);
+        return f(nums, nums.size() - 1);
+    }
+};
 
 int main()
 {
-    vector <int> v = {3,1,2,4};
-    rob(v);
+    
+
     return 0;
 }
