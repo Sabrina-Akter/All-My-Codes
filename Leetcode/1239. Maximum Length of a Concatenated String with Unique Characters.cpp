@@ -1,51 +1,47 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-    int mx=0;
-
-    void f(vector<string>& arr, string& s, int ind)
+class Solution 
+{
+public:
+    void f(vector<string>& arr, vector<string>& all, int i, string s)
     {
-        if(ind==arr.size()-1)
+        if(i >= arr.size())
         {
-            int i, f=0;
-            map <char, int> m;
-            for(i=0;i<s.size();i++)
-            {
-                m[s[i]]++;
-                if(m[s[i]]>1)
-                {
-                    f=1;
-                    break;
-                }
-            }
-            if(f==0)
-            {
-                if(s.size()>mx)
-                {
-                    mx = s.size();
-                }
-            }
+            all.push_back(s);
         }
         else
         {
-            f(arr, s, ind+1);
-            string temp = s;
-            s+=arr[ind+1];
-            f(arr, s, ind+1);
-            s = temp;
+            f(arr, all, i + 1, s);
+            if(s.size() + arr[i].size() <= 26) f(arr, all, i + 1, s + arr[i]);
         }
     }
-
-    int maxLength(vector<string>& arr) {
-        string s;
-        int ind;
-        f(arr, s, -1);
+    int maxLength(vector<string>& arr) 
+    {
+        vector <string> all;
+        f(arr, all, 0, "");
+        int mx = 0;
+        for(auto &word : all)
+        {
+            unordered_map <char, int> freq;
+            bool unique = true;
+            int n = word.size();
+            for(auto &c : word)
+            {
+                freq[c]++;
+                if(freq[c] == 2) 
+                {
+                    unique = false;
+                    break;
+                }
+            }
+            if(unique == true) mx = max(mx, n);
+        }
         return mx;
     }
+};
 
 int main()
 {
-    vector<string> arr = {"aaa"};
-    maxLength(arr);
     return 0;
 }
