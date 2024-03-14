@@ -43,8 +43,9 @@ int main()
             {
                 if(last_zero == 0)
                 {
-                    last_one++;
-                    ans.pb(last_one);
+                    ans.pb(mx + 1);
+                    mx++;
+                    last_one = mx;
                 }
                 else
                 {
