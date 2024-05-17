@@ -4,20 +4,15 @@
 using namespace std; 
 
 
-bool findPair(int arr[], int size, int n)
+int findPair(int n, int x, vector<int> &arr) 
 {
-    unordered_map <int, int> m;
-    int i;
-    for(i=0;i<size;i++)
+    unordered_map <int, int> num;
+    for(int i = 0; i < n; i++)
     {
-        if((m[abs(arr[i]-n)]==1) || (m[arr[i]+n]==1))
-        {
-            
-            return true;
-        }
-        m[arr[i]] = 1;
+        if(num.count(arr[i] - x) == true || num.count(arr[i] + x) == true) return 1;
+        num[arr[i]] = 1;
     }
-    return false;
+    return -1;
 }
 
 int main()
