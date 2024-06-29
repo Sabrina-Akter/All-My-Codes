@@ -30,31 +30,30 @@ int main()
     cin >> t;
     while(t--)
     {
-        ll n, m;
+        ll n, m, x;
         cin >> n >> m;
-        vll v(n);
+        priority_queue <ll, vector<ll>, greater<ll>> pq;
         for(ll i = 0; i < n; i++)
+        {
+            cin >> x;
+            pq.push(x);
+        }
+        vll v(m);
+        for(ll i = 0; i < m; i++)
         {
             cin >> v[i];
         }
-        sort(all(v));
-        vll v2(m);
+        sort(v.begin(), v.end());
         for(ll i = 0; i < m; i++)
         {
-            cin >> v2[i];
+            pq.pop();
+            pq.push(v[i]);
         }
-        sort(v2.rbegin(), v2.rend());
         ll sum = 0;
-        for(ll i = 0; i < n; i++)
+        while(pq.empty() == false)
         {
-            if(i < m)
-            {
-                sum += v2[i];
-            }
-            else
-            {
-                sum += v[i];
-            }
+            sum += pq.top();
+            pq.pop();
         }
         cout << sum << nl;
     }
