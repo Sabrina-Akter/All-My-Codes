@@ -26,6 +26,33 @@ int KY[]={-1,1,-2,2,-2,2,-1,1}; // Knight's Move
 int main()
 {
     fastt;
-    
+    ll t;
+    cin >> t;
+    while(t--)
+    {
+        ll n;
+        cin >> n;
+        vll v(n);
+        for(ll i = 0; i < n; i++)
+        {
+            cin >> v[i];
+        }
+        if(is_sorted(all(v)))
+        {
+            cout << 0 << nl;
+        }
+        else if((v[n - 2] <= v[n - 1]) && (v[n - 2] - v[n - 1] <= v[n - 2]))
+        {
+            cout << n - 2 << nl;
+            for(ll j = 0; j < n - 2; j++)
+            {
+                cout << j + 1 << " " << n - 1 << " " << n << nl;
+            }
+        }
+        else
+        {
+            cout << -1 << nl;
+        }
+    }
     return 0;
 }
