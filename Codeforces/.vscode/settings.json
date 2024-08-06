@@ -3,7 +3,8 @@
         "iostream": "cpp",
         "cmath": "cpp",
         "numeric": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "ostream": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
