@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define fastt ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define ll long long int
+#define vll vector <ll>
+#define pb push_back
+#define ff first
+#define ss second
+#define lb lower_bound
+#define ub upper_bound
+#define all(x) x.begin(), x.end()
+#define ms(x) memset(x, 0, sizeof x)
+#define pll pair<ll,ll>
+#define plll pair<pll,ll>
+
+const int MOD = 1000000007;
+const char nl = '\n';
+
+int X[]={+0,+0,+1,-1,-1,+1,-1,+1};   // L, R, D, U, TR, BR, TL, BL
+int Y[]={-1,+1,+0,+0,+1,+1,-1,-1};  //
+
+int KX[]={-2,-2,-1,-1,1,1,2,2};  // Knight's Move
+int KY[]={-1,1,-2,2,-2,2,-1,1}; // Knight's Move
+
+int main()
+{
+    fastt;
+    ll t;
+    cin >> t;
+    while(t--)
+    {
+        string s1, s2;
+        cin >> s1 >> s2;
+        ll i = 0,  j = 0;
+        bool yes = false;
+        while(1)
+        {
+            if(s2[j] != s1[i] && s1[i] != '?')
+            {
+                if(i + 1 == s1.size()) break;
+                else i++;
+            }
+            else if(s2[j] == s1[i])
+            {               
+                if(j + 1 == s2.size()) yes = true;
+                if(i + 1 == s1.size()) break;
+                if(i + 1 < s1.size()) i++;
+                if(j + 1 < s2.size()) j++;
+            }
+            else if(s1[i] == '?')
+            {              
+                s1[i] = s2[j];
+                if(j + 1 == s2.size()) yes = true;
+                if(i + 1 == s1.size()) break;
+                if(i + 1 < s1.size()) i++;
+                if(j + 1 < s2.size()) j++;
+            }
+        }
+        if(yes) cout << "YES" << nl, cout << s1 << nl;
+        else cout << "NO" << nl;
+    }
+    return 0;
+}
