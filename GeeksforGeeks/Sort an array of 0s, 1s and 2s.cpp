@@ -1,48 +1,40 @@
 //{ Driver Code Starts
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 
-
 // } Driver Code Ends
-class Solution
+class Solution 
 {
-    public:
-    void sort012(int a[], int n)
+  public:
+    void sort012(vector<int>& arr) 
     {
-        int i, j=-1, zero=0, one=0, two=0;
-        for(i=0;i<n;i++) 
+        int zero = 0, one = 0, two = 0;
+        for(int i = 0; i < arr.size(); i++)
         {
-            if(a[i]==0)
-            {
-                zero++;
-            }
-            else if(a[i]==1)
-            {
-                one++;
-            }
-            else if(a[i]==2)
-            {
-                two++;
-            }
+            if(arr[i] == 0) zero++;
+            else if(arr[i] == 1) one++;
+            else two++;
         }
-        for(i=0;i<zero;i++)
+        for(int i = 0; i < arr.size(); i++)
         {
-            j++;
-            a[j] = 0;
-        }
-        for(i=0;i<one;i++)
-        {
-            j++;
-            a[j] = 1;
-        }
-        for(i=0;i<two;i++)
-        {
-            j++;
-            a[j] = 2;
+            if(zero > 0)
+            {
+                arr[i] = 0;
+                zero--;
+            }
+            else if(one > 0)
+            {
+                arr[i] = 1;
+                one--;
+            }
+            else if(two > 0)
+            {
+                arr[i] = 2;
+                two--;
+            }
         }
     }
-    
 };
 
 //{ Driver Code Starts.
@@ -50,28 +42,29 @@ int main() {
 
     int t;
     cin >> t;
+    cin.ignore();
+    while (t--) {
 
-    while(t--){
-        int n;
-        cin >>n;
-        int a[n];
-        for(int i=0;i<n;i++){
-            cin >> a[i];
+        vector<int> a;
+        string input;
+        int num;
+
+        getline(cin, input);
+        stringstream s2(input);
+        while (s2 >> num) {
+            a.push_back(num);
         }
-
         Solution ob;
-        ob.sort012(a, n);
+        ob.sort012(a);
 
-        for(int i=0;i<n;i++){
-            cout << a[i]  << " ";
+        int n = a.size();
+        for (int i = 0; i < n; i++) {
+            cout << a[i] << " ";
         }
 
         cout << endl;
-        
-        
     }
     return 0;
 }
-
 
 // } Driver Code Ends
