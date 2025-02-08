@@ -1,45 +1,54 @@
 #include <bits/stdc++.h>
+#define int long long
 using namespace std;
 
-#define fastt ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-#define ll long long int
-#define vll vector<ll>
-#define pb push_back
+int T, n, m, a[200005], p[200005], ans[200005], l, r, mul;
+string s;
 
-int main()
+signed main()
 {
-    fastt;
-    ll t;
-    cin >> t;
-    while (t--)
+    cin >> T;
+
+    while (T--)
     {
-        ll n, m, i, prod = 1;
         cin >> n >> m;
-        vll v(n);
-        for (i = 0; i < n; i++)
+
+        for (int i = 1; i <= n; i++)
         {
-            cin >> v[i];
-            prod *= v[i];
+            cin >> a[i];
         }
 
-        string s;
         cin >> s;
-        int left = 0, right = n - 1;
-        for (i = 0; i < n; i++)
+        l = 1;
+        r = n;
+        mul = 1;
+
+        for (int i = 0; i < n; i++)
         {
-            cout << prod % m << " ";
             if (s[i] == 'L')
             {
-                prod /= v[left];
-                left++;
+                p[i + 1] = l;
+                l++;
             }
             else
             {
-                prod /= v[right];
-                right--;
+                p[i + 1] = r;
+                r--;
             }
         }
-        cout << endl;
+
+        for (int i = n; i >= 1; i--)
+        {
+            mul = (mul * a[p[i]]) % m;
+            ans[i] = mul;
+        }
+
+        for (int i = 1; i <= n; i++)
+        {
+            cout << ans[i] << " ";
+        }
+
+        cout << "\n";
     }
 
     return 0;
