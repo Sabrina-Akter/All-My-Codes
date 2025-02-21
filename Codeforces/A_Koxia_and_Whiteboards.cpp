@@ -43,7 +43,7 @@ int main()
         {
             cin >> v[i];
         }
-        sort(v.begin(), v.end());
+
         for(ll i = 0; i < m; i++)
         {
             pq.pop();
