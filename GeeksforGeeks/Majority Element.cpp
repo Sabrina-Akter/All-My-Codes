@@ -4,65 +4,47 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 // } Driver Code Ends
+
 // User function template for C++
-
-class Solution
+class Solution 
 {
-public:
-    // Function to find majority element in the array
-    // a: input array
-    // size: size of input array
-    int majorityElement(int a[], int size)
+  public:
+    int majorityElement(vector<int>& arr) 
     {
-        int maj_index = 0, count = 1;
-        for (int i = 1; i < size; i++)
+        double n = arr.size(), half = n / 2;
+        unordered_map <int, int> mp;
+        for(int i = 0; i < n; i++)
         {
-            if (a[maj_index] == a[i])
-                count++;
-            else
-                count--;
-            if (count == 0)
-            {
-                maj_index = i;
-                count = 1;
-            }
+            mp[arr[i]]++;
+            if(mp[arr[i]] > half) return arr[i];
         }
-        int cand = a[maj_index];
-        count = 0;
-        for (int i = 0; i < size; i++)
-
-            if (a[i] == cand)
-                count++;
-
-        if (count > size / 2)
-            return cand;
-
-        else
-            return -1;
+        return -1;
     }
 };
 
+
 //{ Driver Code Starts.
 
-int main()
-{
+int main() {
 
     int t;
     cin >> t;
-
-    while (t--)
-    {
+    cin.ignore();
+    while (t--) {
         int n;
-        cin >> n;
-        int arr[n];
+        vector<int> a, b;
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
+        int num;
+        while (ss >> num)
+            a.push_back(num);
 
-        for (int i = 0; i < n; i++)
-        {
-            cin >> arr[i];
-        }
         Solution obj;
-        cout << obj.majorityElement(arr, n) << endl;
+        cout << obj.majorityElement(a) << endl;
+        cout << "~" << endl;
     }
 
     return 0;
