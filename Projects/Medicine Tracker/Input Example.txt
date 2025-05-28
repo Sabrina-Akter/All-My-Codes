@@ -1,0 +1,11 @@
+Algecal D (500 mg)
+0 0 0 1 0 0
+Osteo-D (40000 IU)
+0 0 0 0 0 1
+Greenox (4 mg)
+0 0 0 0 0 1
+Irofix FZ
+0 0 0 0 0 1
+Normens (5 mg)
+0 1 0 0 0 1
+done
