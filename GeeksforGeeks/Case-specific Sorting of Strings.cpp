@@ -1,71 +1,33 @@
-//{ Driver Code Starts
-//Initial Template for C++
-
-#include<bits/stdc++.h>
-using namespace std;
-
-
-// } Driver Code Ends
-//User function Template for C++
-
-class Solution
+class Solution 
 {
-    public:
-    //Function to perform case-specific sorting of strings.
-    string caseSort(string str, int n)
+public:
+    string caseSort(string& s) 
     {
-        string low;
-        string high;
-        vector <int>  Case;
-        for(int i = 0; i < n; i++)
+        map <char, int> mp1, mp2;
+        for(int i = 0; i < s.size(); i++)
         {
-            if(islower(str[i]))
-            {
-                low += str[i];
-                Case.push_back(0);
-            }
-            else
-            {
-                high += str[i];
-                Case.push_back(1);              
-            }
+            if(s[i] >= 'a' && s[i] <= 'z') mp1[s[i]]++;
+            else mp2[s[i]]++;
         }
-        sort(low.begin(), low.end());
-        sort(high.begin(), high.end());
-        int j = 0;
-        int k = 0;
         string ans;
-        for(int i = 0; i < n; i++)
+        char c;
+        for(int i = 0; i < s.size(); i++)
         {
-            if(Case[i] == 0)
+            if(s[i] >= 'a' && s[i] <= 'z')
             {
-                ans += low[j];
-                j++;
+                c = mp1.begin()->first;
+                ans += c;
+                mp1[c]--;
+                if(mp1[c] == 0) mp1.erase(c);
             }
             else
             {
-                ans += high[k];
-                k++;
+                c = mp2.begin()->first;
+                ans += c;
+                mp2[c]--;
+                if(mp2[c] == 0) mp2.erase(c);               
             }
         }
         return ans;
     }
 };
-
-//{ Driver Code Starts.
-
-int main()
-{
-	int t;
-	cin>>t;
-	while(t--)
-	{
-		int n;
-		cin>>n;
-		string str;
-		cin>>str;
-		Solution obj;
-		cout<<obj.caseSort (str, n)<<endl;
-	}
-}
-// } Driver Code Ends
