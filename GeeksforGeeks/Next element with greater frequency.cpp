@@ -1,73 +1,37 @@
-//{ Driver Code Starts
-#include <bits/stdc++.h>
-#define N 10000
-using namespace std;
-
-// } Driver Code Ends
-class Solution
+class Solution 
 {
-public:
-    vector<int> print_next_greater_freq(int arr[], int n)
+    public:
+    vector<int> findGreater(vector<int>& arr) 
     {
-        vector <int> res(n);
-        map <int, int> freq;
-        int i;
-        for(i=0;i<n;i++)
+        unordered_map <int, int> mp;
+        for(int i = 0; i < arr.size(); i++)
         {
-            freq[arr[i]]++;
+            mp[arr[i]]++;
         }
-        stack<int> s;
-        s.push(0);
-
-        for (int i = 1; i < n; i++)
+        vector <pair<int, int>> v;
+        vector <int> ans;
+        for(int i = 0; i < arr.size(); i++)
         {
-            if (freq[arr[s.top()]] > freq[arr[i]])
-                s.push(i);
-            else
+            v.push_back({mp[arr[i]], arr[i]});
+        }
+        reverse(v.begin(), v.end());
+        stack <pair<int, int>> st;
+        for(int i = 0; i < v.size(); i++)
+        {
+            while(st.empty() == false)
             {
-                while (!s.empty() && freq[arr[s.top()]] < freq[arr[i]])
+                if(st.top().first <= v[i].first) st.pop();
+                else
                 {
-                    res[s.top()] = arr[i];
-                    s.pop();
+                    ans.push_back(st.top().second);
+                    break;
                 }
-                s.push(i);
             }
+            if(st.empty()) ans.push_back(-1);
+            st.push({v[i].first, v[i].second});
         }
-
-        while (!s.empty())
-        {
-            res[s.top()] = -1;
-            s.pop();
-        }
-        return res;
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
 };
 
-//{ Driver Code Starts.
-
-int main()
-{
-    int arr[N];
-
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-
-        for (int i = 0; i < n; i++)
-            cin >> arr[i];
-
-        Solution ob;
-        vector<int> ans = ob.print_next_greater_freq(arr, n);
-        for (auto x : ans)
-        {
-            cout << x << " ";
-        }
-        cout << endl;
-    }
-    return 1;
-}
-
-// } Driver Code Ends
