@@ -13,5 +13,6 @@ int main()
     {
         cout << "2 " << ++i << " " << --v << '\n';
     }
+    
     return 0;
 }
